@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+    <title>Contact Us</title>
+</head>
+<body>
+    <header>
+        <nav id="horizontal_nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/our_movies.html">Our Movies</a></li>
+                <li><a href="../pages/add_movie.html">Add Movies</a></li>
+                <li><a href="../pages/about_me.html">About Me</a></li>
+                <li class="fake_link">Contact Us</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="title_container">
+            <img src="https://wallpapers.com/images/featured-full/film-reel-png-wkzwgj0y9laly3vs.png" alt="a film reel as a background." >
+            <br>
+            <article class="title_content">
+            <h1>Movie Library!</h1>
+            <br>
+            <h2>Send us a message!</h2>
+            <br>
+            </article>
+            <article class="main_article">
+                <form action="../pages/not_yet.html">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="Enter your Name." class="form_space" required><br>
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" id="email" placeholder="Enter your Email but we will not validate it." class="form_space"><br>
+                    <label for="region">Choose your Region: </label>
+                    <select name="region" id="region" class="form_space" required>
+                        <option value="South America">South America</option>
+                        <option value="North America">North America</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Oceania">Oceania</option>
+                    </select><br>
+                    <label for="picture" class="custom_upload">Upload a Picture! </label>
+                    <input type="file" accept="image/*" name="picture" id="picture" class="form_space"><br>
+                    <input class="randomizer form_space" type="submit" value="Send it now!">
+                </form>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <br>
+        <p>© Sadri 2025</p>
+        <p >
+            <img src="../img/linkedin.png" alt="Link to LinkedIn" height="20px"><a class="footer_links" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"> My LinkedIn!</a>
+            <img src="../img/github.png" alt="Link to Github" height="20px"><a class="footer_links" href="https://github.com/Sadri199"> My Github!</a>
+        </p>
+    </footer>
+</body>
+</html>
