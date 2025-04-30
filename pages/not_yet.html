@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .easter-egg{
+            color: azure;
+        }
+        .container{
+            display: flex;
+            flex-flow: row wrap;
+            align-content: center;
+        }
+        .container-item{
+            border: 10px solid rebeccapurple;
+            background-color: aqua;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
     <img src="../img/sad.gif" alt="Spiderman walking very sad">
-    <p>Aún no está lista esta parte :( </p>
+    <p>Esto no funciona hasta que no aprenda Javascript :( </p>
     <a href="../index.html">Volve al home plz</a>
+
+    <div>
+        <p class="easter-egg">¿Podes encontrar todos los easter eggs?</p>
+    </div>
+    <section class="container">
+        <div class="container-item">Item 1</div>
+        <div class="container-item">Item 2</div>
+        <div class="container-item">Item 3</div>
+        <div class="container-item">Item 4</div>
+    </section>
+    <p id="demo"></p>
+
+<script>
+const element = document.getElementById("demo");
+setInterval(function() {location.replace("../index.html")}, 5000);
+</script>
 </body>
 </html>
