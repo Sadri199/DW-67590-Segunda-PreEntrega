@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .easter-egg{
+        .div__easter-egg{
             color: azure;
         }
         .container{
@@ -19,6 +19,10 @@
             margin: 10px;
             text-align: center;
         }
+        .div__easter-egg-1{
+            background-color: yellow;
+            color: #b87d4b;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -28,7 +32,7 @@
     <a href="../index.html">Volve al home plz</a>
 
     <div>
-        <p class="easter-egg">¿Podes encontrar todos los easter eggs?</p>
+        <p class="div__easter-egg">¿Podes encontrar todos los easter eggs?</p>
     </div>
     <section class="container">
         <div class="container-item">Item 1</div>
@@ -36,11 +40,26 @@
         <div class="container-item">Item 3</div>
         <div class="container-item">Item 4</div>
     </section>
-    <p id="demo"></p>
-
+    <p id="demo"> Si esperas 10 segundos vuelve solo al home :) </p>
+    <section>
+        <div class="div__easter-egg-1">
+            <p>Arriba el sol, abajo el reflejo <br>
+                Ve cómo estalla mi alma <br>
+                Ya estás aquí <br>
+                Y el paso que dimos <br>
+                Es causa y es efecto <br>
+                Cruza el amor <br>
+                Yo cruzaré los dedos <br>
+                Y gracias por venir <br>
+                Gracias por venir <br>
+                <br> <br>
+                Adorable puente <br>
+                Se ha creado entre los dos</p>
+        </div>
+    </section>
 <script>
 const element = document.getElementById("demo");
-setInterval(function() {location.replace("../index.html")}, 5000);
+setInterval(function() {location.replace("../index.html")}, 10000);
 </script>
 </body>
 </html>

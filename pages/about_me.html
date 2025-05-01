@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,42 +12,52 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
     <title>About Me</title>
 </head>
-<body>
-    <header>
-        <nav id="horizontal_nav">
-            <ul>
-                <li> <a href="../index.html">Home</a></li>
-                <li><a href="../pages/our_movies.html">Our Movies</a></li>
-                <li><a href="../pages/add_movie.html">Add Movies</a></li>
-                <li class="fake_link">About Me</li>
-                <li><a href="../pages/contact_us.html">Contact Us</a></li>
+<body class="body" id="body">
+    <header class="body__header">
+        <nav id="horizontal_nav" class="header__nav">
+            <ul class="nav__ul">
+                <li class="nav__li"><a href="../index.html" class="nav__a--next_page">Home</a></li>
+                <li class="nav__li"><a href="./our_movies.html" class="nav__a--next_page">Our Movies</a></li>
+                <li class="nav__li"><a href="./add_movie.html" class="nav__a--next_page">Add Movies</a></li>
+                <li class="nav__li"><a href="./about_me.html" class="nav__a--current-page">About Me</a></li>
+                <li class="nav__li"><a href="./contact_us.html" class="nav__a--next_page">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="title_container">
-            <img src="https://wallpapers.com/images/featured-full/film-reel-png-wkzwgj0y9laly3vs.png" alt="a film reel as a background." >
+    <main class="body__main">
+        <section class="main__section-title">
+            <article class="main__article-title">
+            <h1 class="article-title__h1">Movie Library!</h1>
             <br>
-            <article class="title_content">
-            <h1>Movie Library!</h1>
-            <br>
-            <h2>Some information about myself!</h2>
+            <h2 class="article-title__h2">Some information about myself!</h2>
             <br>
             </article>
-            <article>
+        </section>
+        <section class="main__section-content">
+            <article class="main__article-content--about-me">
                 <br>
-                <p id="main_me">Hi, my name is Adrian Satriani and I'm starting to learn about html and css. <br>For now, this website will be very simple, but I will try to mimic (and improve) a project I made last year in <a href="https://github.com/Sadri199/AdrianSatriani_EntregaFinal/tree/main">Django!</a></p>
+                <p class="article-content--about-me__p">Hi, my name is Adrian Satriani and I'm starting to learn about html and css. <br>For now, this website will be very simple, but I will try to mimic (and improve) a project I made last year in <a href="https://github.com/Sadri199/AdrianSatriani_EntregaFinal/tree/main" class="article-content--about-me__a">Django!</a></p>
                 <br>
+                <br>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi culpa sequi dignissimos velit aut nihil aperiam tempore iure nobis, fugit explicabo, vero possimus, perferendis placeat dolorem fuga ea doloremque deserunt?
+                Eaque animi delectus reiciendis repellendus quisquam eligendi, veniam numquam sunt, doloremque voluptatem velit? Voluptas, veritatis deleniti nihil facere voluptate velit ea eligendi sunt enim. Sint soluta cumque perspiciatis quae consectetur!
+                Quisquam recusandae veritatis voluptatum culpa officiis earum qui, esse alias dolores libero ut. Alias, itaque ut libero sunt vitae perferendis iusto animi incidunt facilis cumque dolor molestiae assumenda beatae? Sapiente?
+                Quisquam doloribus eligendi, totam expedita nam modi iure esse soluta mollitia dolores nulla veritatis incidunt qui praesentium quidem minima consectetur non nesciunt laudantium corporis, similique enim ullam. Est, magni quod.
+                Ab aliquam deserunt cumque blanditiis consequatur quaerat dignissimos eius amet, autem, reprehenderit a officia quo et sed laboriosam, architecto id velit. Id beatae tempora, commodi incidunt illum molestiae deserunt impedit!
+                Adipisci, blanditiis exercitationem cupiditate inventore expedita assumenda quasi reprehenderit vero consequatur nemo recusandae voluptatem perspiciatis facilis error! Qui quidem labore reprehenderit doloremque illum accusamus aperiam rerum culpa. Quam, deserunt libero.
+                Veritatis placeat excepturi eum consequuntur accusantium, nesciunt dolore vel at! Similique, culpa libero ipsam impedit corrupti rerum aut itaque tempora mollitia sequi possimus repellendus praesentium, distinctio ab quos eligendi laboriosam?
+                Quidem sapiente architecto distinctio reprehenderit dicta fuga, dolorem dolor alias iure vitae numquam eius doloribus, obcaecati optio eveniet repudiandae animi sit minus! Architecto possimus quam repudiandae laborum reprehenderit magni accusantium!
+                Obcaecati optio porro vitae vero? Voluptates sit expedita ut nobis provident ipsam rem et voluptas nulla? Magni facilis illo itaque nesciunt nihil eos, labore, in dolor fugit omnis vel impedit!
+                Non eligendi natus velit aut magni neque voluptates modi nihil! Ratione saepe quod et eveniet necessitatibus tempora officiis eius, cumque modi repellendus perspiciatis, vero eligendi itaque aperiam totam, adipisci nam.</p>
             </article>
         </section>
     </main>
-    <footer>
-        <br>
-        <p>© Sadri 2025</p>
-        <p >
-            <img src="../img/linkedin.png" alt="Link to LinkedIn" height="20px"><a class="footer_links" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"> My LinkedIn!</a>
-            <img src="../img/github.png" alt="Link to Github" height="20px"><a class="footer_links" href="https://github.com/Sadri199"> My Github!</a>
-        </p>
+    <footer class="body__footer">
+        <div class="footer-container">
+            <p class="footer-container__p">© Sadri 2025</p>
+            <a class="footer-container__a" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"><img src="../img/linkedin.png" alt="Link to LinkedIn" class="footer-container__img"> <span class="footer-container__img--hidden">My LinkedIn!</span></a>
+            <a class="footer-container__a" href="https://github.com/Sadri199"><img src="../img/github.png" alt="Link to Github" class="footer-container__img"><span class="footer-container__img--hidden">My Github!</span></a>
+        </div>
     </footer>
 </body>
 </html>
