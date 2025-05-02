@@ -18,10 +18,33 @@
             width: 100px;
             margin: 10px;
             text-align: center;
+            flex-basis: 2;
         }
         .div__easter-egg-1{
             background-color: yellow;
             color: #b87d4b;
+            height: auto;
+            width: 100px;
+            transition: width 2s;
+        }
+
+        .div__easter-egg-1:hover{
+            transition-timing-function: linear;
+            width: 1000px;
+        }
+
+        .p__easter-egg-1{
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .div__easter-egg-1:hover .p__easter-egg-1{
+            opacity: 1;
+            visibility: visible;
+        }
+        .container-item__easter-egg2{
+            top: 150%;
         }
     </style>
     <title>Document</title>
@@ -29,7 +52,10 @@
 <body>
     <img src="../img/sad.gif" alt="Spiderman walking very sad">
     <p>Esto no funciona hasta que no aprenda Javascript :( </p>
-    <a href="../index.html">Volve al home plz</a>
+    <p id="demo"> Si clickeas el botón de abajo y esperas 10 segundos te lleva al home :) 
+        <button onclick="setTimeout(myFunction, 10000);">Volve al home plz</button>
+        No hay mucho más para hacer acá...
+    </p>
 
     <div>
         <p class="div__easter-egg">¿Podes encontrar todos los easter eggs?</p>
@@ -38,9 +64,11 @@
         <div class="container-item">Item 1</div>
         <div class="container-item">Item 2</div>
         <div class="container-item">Item 3</div>
-        <div class="container-item">Item 4</div>
+        <div class="container-item__easter-egg2">
+                <iframe id="frame1" src="https://js-dos.com/games/doom.exe.html" framemborder="0" scrolling="yes" height="600" width="900" allowfullscreen>
+                </iframe></div>
     </section>
-    <p id="demo"> Si esperas 10 segundos vuelve solo al home :) </p>
+
     <section>
         <div class="div__easter-egg-1">
             <p>Arriba el sol, abajo el reflejo <br>
@@ -55,11 +83,16 @@
                 <br> <br>
                 Adorable puente <br>
                 Se ha creado entre los dos</p>
+            <p class="p__easter-egg-1"> -.-. .- -- .. .-.. .- </p>    
         </div>
     </section>
 <script>
-const element = document.getElementById("demo");
-setInterval(function() {location.replace("../index.html")}, 10000);
+
+function myFunction(){
+    alert("Cerra este Pop up para volver al home.");
+    location.replace("../index.html");
+}
+
 </script>
 </body>
 </html>
