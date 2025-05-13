@@ -1,0 +1,167 @@
+/* Rebuild de Media Queries */
+@media screen and (min-width:300px) and (max-width: 600px){
+    .body{
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+        "main main main"
+        "main main main"
+        "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto repeat(3, 1fr) auto;
+    }
+    .body__header{
+        grid-area: header;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .nav__ul{ /* Nesting header */
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+    }
+    .nav__li{
+        margin: 5px 0;
+    }
+    .nav__a--next_page:active{
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.1);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+        }
+    .body__main{
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .main__section-title{ /* Nesting main */
+    flex-flow: column wrap;
+    }
+    .article-title__h1{
+        font-size: 2.5rem;
+    }
+    .article-title__h2{
+        font-size: 2.2rem;
+    }
+    .main__section-content{
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .main__article-content{
+        flex-grow: 1;
+    }
+    .article-content__p{
+        font-size: 1.3rem;
+        margin-top: 50px;
+    }
+    .article-content__a:active{
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.1);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+    }
+    .article-content__a--button{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        text-decoration: none;
+    }
+    #randomizer{
+        border-radius: 10px;
+        font-size: 1.3rem;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        flex-grow: 2;
+        cursor: none;
+    }
+    #randomizer:active{
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.1);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+    } 
+    .body__footer{
+        grid-area: footer;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .footer-container{ /* Nesting Footer */
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .footer-container__p{
+        font-size: 1.3rem;
+    }
+    .footer-container__img{
+        height: 1.5rem;
+    }
+    .footer-container__img--hidden{
+        visibility: hidden;
+    }
+    .article-content__ul{
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        align-items: center;
+    }
+    .article-content__li{
+        font-size: 1.3rem;
+        margin: 2% 0;
+    }
+    .article-content__form{
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .article-content__input--text-label, .article-content__input--number-label{
+        font-size: 1.3rem;
+    }
+    .article-content__input--text, .article-content__input--text-area{
+        width: 80%;
+        font-size: 1.2rem;
+    }
+    .article-content__input--number{
+        width: 30%;
+        font-size: 1.2rem;
+    }
+    .article-content__input--text-area::placeholder{
+        height: 80px;
+    }
+    .article-content__input--file-label, .article-content__submit{
+        font-size: 1.3rem;
+        margin-top: 4%;
+        }
+    .article-content__input--file-label:active, .article-content__submit:active{
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.1);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+        }
+    .article-content--about-me__p{
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    .article-content--about-me__a:active{
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.1);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+        }
+    .article-content__input--select-label{
+        font-size: 1.3rem;
+    }
+    .article-content__input--email{
+        font-size: 1.2rem;
+        width: 80%;
+    }
+    .article-content__input--select{
+        font-size: 1.2rem;
+        width: 80%;
+    }
+}
