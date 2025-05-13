@@ -1,3 +1,7 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/extends";
+
 .body__main{ 
     grid-area: main;
     grid-column-start: 1;
@@ -6,88 +10,68 @@
     grid-row-end: 5;
 }
 
-.main__section-title{ /* Hacer Nesting */
+.main__section-title{
     display: flex;
     flex-flow: column wrap;
     align-content: center;
     justify-content: center;
-}
-
-.main__article-title{ 
-    color: rgb(239, 198, 155);
-}
-
-.article-title__h1{
-    font-size: 2.2rem;
-    text-align: center;
-}
-
-.article-title__h2{
-    font-size: 2rem;
-    text-decoration: underline;
-    text-align: center;
+    .main__article-title{ 
+        color: variables.$color-main;
+    }
+    .article-title__h1{
+        @include mixins.main (2.2rem);
+    }
+    .article-title__h2{
+        @include mixins.main (2rem);
+        text-decoration: underline;
+    }
 }
 
 .main__section-content{
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-}
-
-.main__article-content{ 
-    color: rgb(239, 198, 155);
-}
-
-.article-content__p {
-    font-size: 1rem;
-}
-
-.article-content__a{
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-}
-
-.article-content__a:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-#randomizer {
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    border-radius: 5px;
-    border-color: rgb(108, 117, 107);
-    margin-bottom: 1%;
-    font-size: 1rem;
-    text-align: center;
-    cursor: pointer;
-}
-
-#randomizer:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
+    .main__article-content{ 
+        color: variables.$color-main;
+    }
+    .article-content__p {
+        @include mixins.main (1.2rem);
+        text-align: left;
+        white-space: pre-line;
+    }
+    .article-content__a{
+        @include mixins.main-a;
+        &:hover{
+            @include mixins.main-a_hover;
+        }
+    }
+    #randomizer {
+        @extend .main-button;
+    }
+    #randomizer:hover{
+        @extend .main-button_hover;
+    }
 }
 
 /************************* Corresponde a "Our Movies" *************************/
 
-.article-content__ul{ /* Nesting */
+.article-content__ul{
     display: flex;
     flex-flow: column nowrap;
     list-style-type: none;
     align-content: center;
     align-items: center;
-}
-
-.article-content__li{ 
-    color: rgb(239, 198, 155);
-    font-size: 1rem;
-    margin: 2% 0;
+    .article-content__li{
+        @include mixins.main (1.2rem);
+        color: variables.$color-main;
+        margin: 2% 0;
+    }
+    .article-content__a{
+        @include mixins.main-a;
+        &:hover{
+            @include mixins.main-a_hover;
+        }
+    }
 }
 
 /************************* Corresponde a "Add Movie" *************************/
@@ -99,17 +83,15 @@
 }
 
 .article-content__input--text-label, .article-content__input--number-label{
-    font-family: inherit;
-    font-size: 1.1rem;
+    @include mixins.main (1.4rem);
+    color: variables.$color-main;
+    font-family: variables.$font-family-all;
 }
 
 .article-content__input--text, .article-content__input--text-area{
-    width: 30%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
+    width: 50%;
+    @include mixins.main (1.2rem);
+    color: variables.$color-main;
     resize: none;
     margin-bottom: 1%;
     border-radius: 10px;
@@ -117,15 +99,14 @@
 
 .article-content__input--text-area{
     overflow: hidden;
+    @include mixins.main (1.2rem);
+    color: variables.$color-main;
 }
 
 .article-content__input--number{
     width: 10%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
+    @include mixins.main (1.2rem);
+    color: variables.$color-main;
     border-radius: 10px;
 }
 
@@ -145,13 +126,14 @@ input[type=number] {
 /* Para sacarle las flechas esas horribles al input number */
 
 .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
+    background-color: variables.$bg-color-focus;
+    color: variables.$color-main;
 }
 
 .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
     color: rgb(108, 117, 107);
     background-color: rgba(223, 194, 242, 0.5);
+    font-family: variables.$font-family-all;
     height: 100px;
     opacity: 0.9;
     text-align: center;

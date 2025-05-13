@@ -1,3 +1,5 @@
+@use "../utilities/variables";
+
 .body__footer{
     grid-area: footer;
     grid-column-start: 1;
@@ -9,29 +11,25 @@
     flex-flow: row nowrap;
     justify-content: center;
     margin-top: 10px;
-    background-color: blueviolet;
-}
-
-.footer-container__p { /* Hacer nesting */
-    color: rgb(239, 198, 155);
-    font-size: 1rem;
-}
-
-.footer-container__a{
-    color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-.footer-container__a:hover {
-    background-color: rgba(26, 9, 13, 0.7);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-.footer-container__img{
-    border-radius: 50%;
-    margin: auto;
-    height: 1rem;
+    background-color: variables.$bg-color-header-footer;
+    .footer-container__p {
+        color: variables.$color-next-page;
+        font-size: variables.$font-size-all;
+    }
+    .footer-container__a{
+        color: variables.$color-next-page;
+        transition-duration: 1s;
+        font-size: variables.$font-size-all;
+        text-decoration: none;
+    }
+    .footer-container__a:hover {
+        background-color: variables.$bg-color-next-page_hover;
+        box-shadow: variables.$box-shadow_hover;
+        transition-timing-function: linear;
+    }
+    .footer-container__img{
+        border-radius: 50%;
+        margin: auto;
+        height: 1rem;
+    }
 }

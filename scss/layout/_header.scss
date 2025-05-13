@@ -1,5 +1,7 @@
+@use "../utilities/variables";
+
 .header__nav {  
-    background-color: rgb(138, 43, 226);
+    background-color: variables.$bg-color-header-footer;
     overflow: hidden;
 }
 
@@ -12,31 +14,32 @@
     align-self: baseline;
 }
 
-.nav__ul{ /* Hacer nesting */
+.nav__ul{
     list-style-type: none;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    .nav__li{
+        flex-shrink: 0;
+        flex-basis: 1;
+        text-align: center;
+    }
+    .nav__a--current-page {
+        color: variables.$color-current-page;
+        background-color: variables.$bg-color-current-page;
+    }
+    .nav__a--next_page {
+        color: variables.$color-next-page;
+        transition-duration: 1s;
+    }
+    .nav__a--next_page:hover {
+        background-color: variables.$bg-color-next-page_hover;
+        box-shadow: variables.$box-shadow_hover;
+        transition-timing-function: linear;
+    }
 }
 
-.nav__li{
-    flex-shrink: 0;
-    flex-basis: 1;
-    text-align: center;
-}
 
-.nav__a--current-page {
-    color: black;
-    background-color: rgb(239, 198, 155);
-}
 
-.nav__a--next_page {
-    color: rgb(239, 198, 155);
-    transition-duration: 1s;
-}
 
-.nav__a--next_page:hover {
-    background-color: rgba(26, 9, 13, 0.7);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
+

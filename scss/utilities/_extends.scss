@@ -1,0 +1,20 @@
+@use "variables";
+
+.main-button {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: variables.$font-size-all;
+    font-family: variables.$font-family-all;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-button_hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px  rgb(108, 117, 107);
+    transition-timing-function: linear;
+}

@@ -1,0 +1,17 @@
+@mixin main ($new-font){
+    font-size: $new-font;
+    text-align: center;
+    background-color: rgba($color: #ffffff, $alpha: 0.6);
+}
+
+@mixin main-a {
+    color: black;
+    transition-duration: 1s;
+}
+
+@mixin main-a_hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px  rgb(108, 117, 107);
+    transition-timing-function: linear;
+}
