@@ -1,4 +1,12 @@
 /*** Variables Body ***/
+/* Rem cheatsheet
+1rem = 16px
+2rem = 32px
+3rem = 48px
+4rem = 64px
+5rem = 80px
+6rem = 96px
+Rem cheatsheet */
 
 $font-size-all: 1rem;
 $font-family-all:"Overpass", sans-serif;
@@ -31,3 +39,30 @@ $font-size-1440-normal: 1.8rem;
 $logo-height-1440: 1.8rem;
 
 /*** Variables Media Query 1440px ***/
+
+/*** Variables Media Query 1024px ***/
+
+$font-size-1024-h1: 2.3rem;
+$font-size-1024-h2: 2.1rem;
+$font-size-1024-normal: 1.5rem;
+$logo-height-1024: 1.5rem;
+
+/*** Variables Media Query 1024px ***/
+
+/*** Variables Media Query 768px ***/
+
+$font-size-768-h1: 1.8rem;
+$font-size-768-h2: 1.5rem;
+$font-size-768-normal: 1.2rem;
+$logo-height-768: 1.2rem;
+
+/*** Variables Media Query 768px ***/
+
+/*** Variables Media Query 600px ***/
+
+$font-size-600-h1: 1.3rem;
+$font-size-600-h2: 1.2rem;
+$font-size-600-normal: 1rem;
+$logo-height-600: 1.5rem;
+
+/*** Variables Media Query 600px ***/

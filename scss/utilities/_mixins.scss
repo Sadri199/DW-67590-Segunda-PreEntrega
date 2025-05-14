@@ -8,6 +8,14 @@
     font-family: variables.$font-family-all;
 }
 
+@mixin main-sm ($new-size: variables.$font-size-all){
+    font-size: $new-size;
+    text-align: center;
+    background-color: rgba($color: #101010, $alpha: 0.8);
+    color: variables.$color-main;
+    font-family: variables.$font-family-all;
+}
+
 @mixin main-a {
     color: black;
     transition-duration: 1s;
