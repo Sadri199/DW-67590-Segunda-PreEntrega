@@ -1,7 +1,11 @@
+@use "variables";
+
 @mixin main ($new-font){
     font-size: $new-font;
     text-align: center;
     background-color: rgba($color: #ffffff, $alpha: 0.6);
+    color: variables.$color-main;
+    font-family: variables.$font-family-all;
 }
 
 @mixin main-a {

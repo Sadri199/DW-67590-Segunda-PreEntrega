@@ -47,10 +47,11 @@
     }
     #randomizer {
         @extend .main-button;
+        &:hover{
+            @extend .main-button_hover;
+        }
     }
-    #randomizer:hover{
-        @extend .main-button_hover;
-    }
+    
 }
 
 /************************* Corresponde a "Our Movies" *************************/
@@ -63,7 +64,6 @@
     align-items: center;
     .article-content__li{
         @include mixins.main (1.2rem);
-        color: variables.$color-main;
         margin: 2% 0;
     }
     .article-content__a{
@@ -80,34 +80,39 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-}
-
-.article-content__input--text-label, .article-content__input--number-label{
-    @include mixins.main (1.4rem);
-    color: variables.$color-main;
-    font-family: variables.$font-family-all;
-}
-
-.article-content__input--text, .article-content__input--text-area{
-    width: 50%;
-    @include mixins.main (1.2rem);
-    color: variables.$color-main;
-    resize: none;
-    margin-bottom: 1%;
-    border-radius: 10px;
-}
-
-.article-content__input--text-area{
-    overflow: hidden;
-    @include mixins.main (1.2rem);
-    color: variables.$color-main;
-}
-
-.article-content__input--number{
-    width: 10%;
-    @include mixins.main (1.2rem);
-    color: variables.$color-main;
-    border-radius: 10px;
+    .article-content__input--text-label, .article-content__input--number-label{
+        @include mixins.main (1.4rem);
+    }
+    .article-content__input--text, .article-content__input--text-area{
+        width: 50%;
+        @include mixins.main (1.2rem);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+    }
+    .article-content__input--text-area{
+        overflow: hidden;
+        @include mixins.main (1.2rem);
+    }
+    .article-content__input--number{
+        width: 10%;
+        @include mixins.main (1.2rem);
+        border-radius: 10px;
+    }
+    .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+    .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+        @extend .main-placeholder;
+    }
+    .article-content__input--file-label, .article-content__submit{
+        @extend .main-button;
+        margin-top: 2%;
+        &:hover{
+            @extend .main-button_hover;
+            }
+    }
 }
 
 /* Para sacarle las flechas esas horribles al input number */
@@ -124,58 +129,22 @@ input[type=number] {
   appearance: textfield;
 }
 /* Para sacarle las flechas esas horribles al input number */
-
-.article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
-    background-color: variables.$bg-color-focus;
-    color: variables.$color-main;
-}
-
-.article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
-    color: rgb(108, 117, 107);
-    background-color: rgba(223, 194, 242, 0.5);
-    font-family: variables.$font-family-all;
-    height: 100px;
-    opacity: 0.9;
-    text-align: center;
-}
-
 input[type="file"]{ 
     display: none;
 }
 
-.article-content__input--file-label, .article-content__submit{
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    border-radius: 5px;
-    border-color: rgb(108, 117, 107);
-    font-size: 1rem;
-    font-family: inherit;
-    margin-top: 2%;
-    text-align: center;
-    cursor: pointer;
-}
-
-.article-content__input--file-label:hover, .article-content__submit:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
 /************************* Corresponde a "About Me" *************************/
 
-.main__article-content--about-me{ /* nesting */
-    font-family: inherit;
-    color: rgb(239, 198, 155);
+.main__article-content--about-me{ /* nesting */  
+    @include mixins.main (1.4rem);
+    white-space: pre-line;
 }
 
 .article-content--about-me__p{
     text-align: left;
-    font-size: 1.5rem;
 }
 
-.article-content--about-me__a{
+.article-content--about-me__a{ /* Me quedé por acá */
     color: black;
     background-color: rgb(239, 198, 155);
     transition-duration: 1s;
