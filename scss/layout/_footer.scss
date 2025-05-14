@@ -9,17 +9,16 @@
 .footer-container{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-end;
     margin-top: 10px;
     background-color: variables.$bg-color-header-footer;
     .footer-container__p {
         color: variables.$color-next-page;
-        font-size: variables.$font-size-all;
     }
     .footer-container__a{
         color: variables.$color-next-page;
         transition-duration: 1s;
-        font-size: variables.$font-size-all;
         text-decoration: none;
     }
     .footer-container__a:hover {
@@ -29,7 +28,5 @@
     }
     .footer-container__img{
         border-radius: 50%;
-        margin: auto;
-        height: 1rem;
     }
 }

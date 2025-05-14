@@ -1,4 +1,189 @@
 /* Rebuild de Media Queries */
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+/* Extend no sirve con media queries, hay que usar mixin... */
+
+/* Rem cheatsheet
+1rem = 16px
+2rem = 32px
+3rem = 48px
+4rem = 64px
+5rem = 80px
+6rem = 96px
+Rem cheatsheet */
+
+@media screen and (max-width: 1444px) {
+    .body__main{ 
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .nav__li{
+        font-size: variables.$font-size-1440-normal;
+        }
+    .main__section-title{
+        .article-title__h1{
+            @include mixins.main (variables.$font-size-1440-h1);
+        }
+        .article-title__h2{
+            @include mixins.main (variables.$font-size-1440-h2);
+            text-decoration: underline;
+            white-space: pre-line;
+        }
+    }
+    .main__section-content{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        .article-content__p {
+            @include mixins.main (variables.$font-size-1440-normal);
+            text-align: left;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+        #randomizer {
+            @include mixins.main-button (variables.$font-size-1440-normal);
+            &:hover{
+                @include mixins.main-button_hover;
+            }
+        }
+        
+    }
+    .footer-container{
+        font-size: variables.$font-size-1440-normal;
+    }
+    .footer-container__img{
+        height: variables.$logo-height-1440;
+    }
+/************************* Corresponde a "Our Movies" *************************/
+
+.article-content__ul{
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+    align-content: center;
+    align-items: center;
+    .article-content__li{
+        @include mixins.main (variables.$font-size-1440-normal);
+        margin: 2% 0;
+    }
+    .article-content__a{
+        @include mixins.main-a;
+        &:hover{
+            @include mixins.main-a_hover;
+        }
+    }
+}
+
+/************************* Corresponde a "Add Movie" *************************/
+
+.article-content__form{ 
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    .article-content__input--text-label, .article-content__input--number-label{
+        @include mixins.main (variables.$font-size-1440-normal);
+    }
+    .article-content__input--text, .article-content__input--text-area{
+        width: 50%;
+        @include mixins.main (variables.$font-size-1440-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+    }
+    .article-content__input--text-area{
+        overflow: hidden;
+        @include mixins.main (variables.$font-size-1440-normal);
+    }
+    .article-content__input--number{
+        width: 10%;
+        @include mixins.main (variables.$font-size-1440-normal);
+        border-radius: 10px;
+    }
+    .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+    .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+        @include mixins.main-placeholder;
+    }
+    .article-content__input--file-label, .article-content__submit{
+        @include mixins.main-button (variables.$font-size-1440-normal);
+        margin-top: 2%;
+        &:hover{
+            @include mixins.main-button_hover;
+            }
+    }
+}
+
+/************************* Corresponde a "About Me" *************************/
+
+.main__article-content--about-me{ /* Me quedé por acá */
+    @include mixins.main (1.4rem);
+    white-space: pre-line;
+    .article-content--about-me__p{
+        text-align: left;
+        .article-content--about-me__a{
+            @include mixins.main-a;
+            font-style: italic;
+            &:hover{
+                @include mixins.main-a_hover
+            }
+        }
+    }
+}
+
+.article-content--about-me__img{
+    @include mixins.main-images;    
+    &:hover{
+        @include mixins.main-images_hover;
+    }    
+}
+
+/************************* Corresponde a "Contact Us" *************************/
+
+.article-content__input--select-label{
+    @include mixins.main (1.4rem);
+    }
+.article-content__input--select{    
+    width: 40%;
+    @include mixins.main (1.2rem);
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    &:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+}
+.article-content__input--option{
+    text-align: center;
+}
+
+.article-content__input--email{
+    width: 50%;
+    @include mixins.main (1.2rem);
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    .article-content__input--email:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;   
+    }
+    .article-content__input--email::placeholder{
+        @include mixins.main-placeholder;
+    }
+}
+}
+
 @media screen and (min-width:300px) and (max-width: 600px){
     .body{
         grid-template-areas: 

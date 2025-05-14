@@ -10,8 +10,8 @@ $font-family-all:"Overpass", sans-serif;
 $bg-color-header-footer: rgba(81, 28, 130, 0.9);
 $color-current-page: black;
 $bg-color-current-page: rgb(239, 198, 155);
-$color-next-page: rgba(239, 198, 155, 0.9); /* Se usa en footer también, en la p y a */
-$bg-color-next-page_hover: rgba(26, 9, 13, 0.7); /* Se usa en footer también, en la p y a */
+$color-next-page: rgba(239, 198, 155, 0.9); 
+$bg-color-next-page_hover: rgba(26, 9, 13, 0.7); 
 $box-shadow_hover: 2px 2px rgb(108, 117, 107);
 
 /*** Variables Header / Navbar / Footer ***/
@@ -22,3 +22,12 @@ $color-main: #8C14B8;
 $bg-color-focus: rgba($color: #d4c1c1, $alpha: 0.8);
 
 /*** Variables Main ***/
+
+/*** Variables Media Query 1440px ***/
+
+$font-size-1440-h1: 3rem;
+$font-size-1440-h2: 2.7rem;
+$font-size-1440-normal: 1.8rem;
+$logo-height-1440: 1.8rem;
+
+/*** Variables Media Query 1440px ***/

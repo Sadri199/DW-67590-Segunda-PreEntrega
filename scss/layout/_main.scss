@@ -19,10 +19,10 @@
         color: variables.$color-main;
     }
     .article-title__h1{
-        @include mixins.main (2.2rem);
+        @include mixins.main;
     }
     .article-title__h2{
-        @include mixins.main (2rem);
+        @include mixins.main;
         text-decoration: underline;
         white-space: pre-line;
     }
@@ -36,7 +36,7 @@
         color: variables.$color-main;
     }
     .article-content__p {
-        @include mixins.main (1.2rem);
+        @include mixins.main;
         text-align: left;
         white-space: pre-line;
     }
@@ -162,20 +162,20 @@ input[type="file"]{
 
 .article-content__input--select-label{
     @include mixins.main (1.4rem);
-    .article-content__input--select{    
-        width: 40%;
-        @include mixins.main (1.2rem);
-        resize: none;
-        margin-bottom: 1%;
-        border-radius: 10px;
     }
+.article-content__input--select{    
+    width: 40%;
+    @include mixins.main (1.2rem);
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
     &:focus{
         background-color: variables.$bg-color-focus;
         color: variables.$color-main;
     }
-    .article-content__input--option{
-        text-align: center;
-    }
+}
+.article-content__input--option{
+    text-align: center;
 }
 
 .article-content__input--email{
