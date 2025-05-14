@@ -520,7 +520,6 @@
     }
 
 /* Media Query 600p */
-/* Me quede acá */
 
 @media screen and (max-width: 600px){ /* Reacomodar todo, armar los mixins espcíficos */
     .body{
@@ -553,11 +552,8 @@
         font-size: variables.$font-size-600-normal;
     }
     .nav__a--next_page:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
+        @include mixins.main-active;
+    }
     .body__main{
         grid-area: main;
         grid-column-start: 1;
@@ -567,13 +563,12 @@
     }
     .main__section-title{
     flex-flow: column wrap;
-    }
     .article-title__h1{
-        font-size: variables.$font-size-600-h1;
         @include mixins.main-sm (variables.$font-size-600-h1);
-    }
+        }
     .article-title__h2{
-        font-size: variables.$font-size-600-h2;
+        @include mixins.main-sm (variables.$font-size-600-h2);
+        }
     }
     .main__section-content{
         flex-flow: row wrap;
@@ -582,37 +577,30 @@
     }
     .main__article-content{
         flex-grow: 1;
+        .article-content__p{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            margin-top: 50px;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+        }
+        .article-content__a:active{
+            @include mixins.main-active;
+        }
+        .article-content__a--button{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            text-decoration: none;
+        }
+        #randomizer{
+            @include mixins.main-button-sm (variables.$font-size-600-normal);
+            &:active{
+                @include mixins.main-active;
+            }
+        }
     }
-    .article-content__p{
-        font-size: variables.$font-size-600-normal;
-        margin-top: 50px;
-    }
-    .article-content__a:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-    }
-    .article-content__a--button{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        text-decoration: none;
-    }
-    #randomizer{
-        border-radius: 10px;
-        font-size: variables.$font-size-600-normal;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        flex-grow: 2;
-        cursor: none;
-    }
-    #randomizer:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-    } 
     .body__footer{
         grid-area: footer;
         grid-column-start: 1;
@@ -626,16 +614,16 @@
     }
     .footer-container__p{
         font-size: variables.$font-size-600-normal;
-    }
-    .footer-container__img{
-        height: variables.$logo-height-600;
-        object-fit: cover;
+        .footer-container__img{
+            height: variables.$logo-height-600;
+            object-fit: cover;
+        }
     }
     .footer-container__img--hidden{
-        visibility: hidden;
-    }
-    /************************* Corresponde a "Our Movies" *************************/
-    .article-content__ul{
+            visibility: hidden;
+        }
+/************************* Corresponde a "Our Movies" *************************/
+    .article-content__ul{ /* Me quede acá */
         display: flex;
         flex-flow: column wrap;
         align-content: center;

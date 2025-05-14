@@ -79,6 +79,7 @@ Rem cheatsheet */
 }
 
 /* These mixins are adaptations of _extend, because media queries don't like extends */
+/* Mixins for 600p and 300p */
 .main-button, .main__section-content #randomizer, .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
   color: black;
   background-color: rgb(239, 198, 155);
@@ -1200,7 +1201,6 @@ input[type=file] {
   }
 }
 /* Media Query 600p */
-/* Me quede acá */
 @media screen and (max-width: 600px) { /* Reacomodar todo, armar los mixins espcíficos */
   .body {
     grid-template-areas: "header header header" "main main main" "main main main" "main main main" "footer footer footer";
@@ -1227,7 +1227,7 @@ input[type=file] {
   }
   .nav__a--next_page:active {
     color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
+    background-color: rgba(26, 9, 13, 0.6);
     box-shadow: 2px 2px rgb(108, 117, 107);
     transition-timing-function: linear;
   }
@@ -1241,16 +1241,19 @@ input[type=file] {
   .main__section-title {
     flex-flow: column wrap;
   }
-  .article-title__h1 {
-    font-size: 1.3rem;
+  .main__section-title .article-title__h1 {
     font-size: 1.3rem;
     text-align: center;
-    background-color: rgba(16, 16, 16, 0.8);
-    color: #8C14B8;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
     font-family: "Overpass", sans-serif;
   }
-  .article-title__h2 {
+  .main__section-title .article-title__h2 {
     font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
   }
   .main__section-content {
     flex-flow: row wrap;
@@ -1260,23 +1263,39 @@ input[type=file] {
   .main__article-content {
     flex-grow: 1;
   }
-  .article-content__p {
+  .main__article-content .article-content__p {
     font-size: 1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
     margin-top: 50px;
+    white-space: pre-line;
   }
-  .article-content__a:active {
+  .main__article-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__article-content .article-content__a:active {
     color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
+    background-color: rgba(26, 9, 13, 0.6);
     box-shadow: 2px 2px rgb(108, 117, 107);
     transition-timing-function: linear;
   }
-  .article-content__a--button {
+  .main__article-content .article-content__a--button {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     text-decoration: none;
   }
-  #randomizer {
+  .main__article-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 1rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
     border-radius: 10px;
     font-size: 1rem;
     margin-top: 5%;
@@ -1284,9 +1303,9 @@ input[type=file] {
     flex-grow: 2;
     cursor: none;
   }
-  #randomizer:active {
+  .main__article-content #randomizer:active {
     color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
+    background-color: rgba(26, 9, 13, 0.6);
     box-shadow: 2px 2px rgb(108, 117, 107);
     transition-timing-function: linear;
   }
@@ -1304,7 +1323,7 @@ input[type=file] {
   .footer-container__p {
     font-size: 1rem;
   }
-  .footer-container__img {
+  .footer-container__p .footer-container__img {
     height: 1.5rem;
     object-fit: cover;
   }
@@ -1312,7 +1331,7 @@ input[type=file] {
     visibility: hidden;
   }
   /************************* Corresponde a "Our Movies" *************************/
-  .article-content__ul {
+  .article-content__ul { /* Me quede acá */
     display: flex;
     flex-flow: column wrap;
     align-content: center;
