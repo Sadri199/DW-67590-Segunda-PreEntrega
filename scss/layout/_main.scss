@@ -24,6 +24,7 @@
     .article-title__h2{
         @include mixins.main (2rem);
         text-decoration: underline;
+        white-space: pre-line;
     }
 }
 
@@ -135,77 +136,59 @@ input[type="file"]{
 
 /************************* Corresponde a "About Me" *************************/
 
-.main__article-content--about-me{ /* nesting */  
+.main__article-content--about-me{
     @include mixins.main (1.4rem);
     white-space: pre-line;
+    .article-content--about-me__p{
+        text-align: left;
+        .article-content--about-me__a{
+            @include mixins.main-a;
+            font-style: italic;
+            &:hover{
+                @include mixins.main-a_hover
+            }
+        }
+    }
 }
 
-.article-content--about-me__p{
-    text-align: left;
-}
-
-.article-content--about-me__a{ /* Me quedé por acá */
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    font-style: italic;
-}
-
-.article-content--about-me__a:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
+.article-content--about-me__img{
+    @extend .main-images;    
+    &:hover{
+        @extend .main-images_hover;
+    }    
 }
 
 /************************* Corresponde a "Contact Us" *************************/
 
 .article-content__input--select-label{
-    font-family: inherit;
-    font-size: 1.1rem;
+    @include mixins.main (1.4rem);
+    .article-content__input--select{    
+        width: 40%;
+        @include mixins.main (1.2rem);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+    }
+    &:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+    .article-content__input--option{
+        text-align: center;
+    }
 }
 
 .article-content__input--email{
-    width: 33%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
+    width: 50%;
+    @include mixins.main (1.2rem);
     resize: none;
     margin-bottom: 1%;
     border-radius: 10px;
-}
-
-.article-content__input--email:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
-}
-
-.article-content__input--email::placeholder{
-    color: rgb(108, 117, 107);
-    background-color: rgba(223, 194, 242, 0.5);
-    opacity: 0.9;
-    text-align: center;
-}
-
-.article-content__input--select{    
-    width: 30%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
-    resize: none;
-    margin-bottom: 1%;
-    border-radius: 10px;
-}
-
-.article-content__input--select:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
-}
-
-.article-content__input--option{
-    text-align: center;
+    .article-content__input--email:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;   
+    }
+    .article-content__input--email::placeholder{
+        @extend .main-placeholder;
+    }
 }

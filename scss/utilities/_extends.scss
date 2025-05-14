@@ -27,3 +27,30 @@
     opacity: 0.9;
     text-align: center;
 }
+
+.main-images {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused; 
+}
+
+.main-images_hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+    @keyframes rotateMe {
+        from {
+            rotate: 0deg;
+            width: 50px;
+            height: 50px;
+        }
+        to{
+            rotate: 360deg;
+            width: 300px;
+            height: 300px;
+            translate: 100%;
+        }
+    }
+}

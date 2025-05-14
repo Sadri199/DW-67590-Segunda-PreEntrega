@@ -7,10 +7,10 @@ $font-family-all:"Overpass", sans-serif;
 
 /*** Variables Header / Navbar / Footer ***/
 
-$bg-color-header-footer: rgb(138, 43, 226);
+$bg-color-header-footer: rgba(81, 28, 130, 0.9);
 $color-current-page: black;
 $bg-color-current-page: rgb(239, 198, 155);
-$color-next-page: rgba(239, 198, 155, 0.8); /* Se usa en footer también, en la p y a */
+$color-next-page: rgba(239, 198, 155, 0.9); /* Se usa en footer también, en la p y a */
 $bg-color-next-page_hover: rgba(26, 9, 13, 0.7); /* Se usa en footer también, en la p y a */
 $box-shadow_hover: 2px 2px rgb(108, 117, 107);
 
