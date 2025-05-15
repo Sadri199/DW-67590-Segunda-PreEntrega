@@ -346,7 +346,6 @@
     }
     }
 
-
 /* Media Query 768p */
 
 @media screen and (max-width:768px) { 
@@ -579,6 +578,7 @@
         flex-grow: 1;
         .article-content__p{
             @include mixins.main-sm (variables.$font-size-600-normal);
+            text-align: left;
             margin-top: 50px;
             white-space: pre-line;
         }
@@ -622,66 +622,72 @@
     .footer-container__img--hidden{
             visibility: hidden;
         }
+
 /************************* Corresponde a "Our Movies" *************************/
-    .article-content__ul{ /* Me quede acá */
+
+    .article-content__ul{ 
         display: flex;
         flex-flow: column wrap;
         align-content: center;
         align-items: center;
+        .article-content__li{
+        @include mixins.main-sm (variables.$font-size-600-normal);
+            margin: 2% 0;
+        }
     }
-    .article-content__li{
-        font-size: 1.3rem;
-        margin: 2% 0;
-    }
+    
+
+/************************* Corresponde a "Add Movie" *************************/
+
     .article-content__form{
         display: flex;
         flex-flow: column wrap;
-    }
-    .article-content__input--text-label, .article-content__input--number-label{
-        font-size: 1.3rem;
-    }
-    .article-content__input--text, .article-content__input--text-area{
-        width: 80%;
-        font-size: 1.2rem;
-    }
-    .article-content__input--number{
-        width: 30%;
-        font-size: 1.2rem;
-    }
-    .article-content__input--text-area::placeholder{
-        height: 80px;
-    }
-    .article-content__input--file-label, .article-content__submit{
-        font-size: 1.3rem;
-        margin-top: 4%;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main-sm (variables.$font-size-600-normal);
         }
-    .article-content__input--file-label:active, .article-content__submit:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
+        .article-content__input--text, .article-content__input--text-area{
+            width: 80%;
+            @include mixins.main-sm (variables.$font-size-600-normal);
         }
-    .article-content--about-me__p{
-        text-align: center;
-        font-size: 1.8rem;
+        .article-content__input--number{
+            width: 30%;
+            @include mixins.main-sm (variables.$font-size-600-normal);
+        }
+        .article-content__input--text-area::placeholder{
+            height: 80px;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button-sm (variables.$font-size-600-normal);
+            margin-top: 4%;
+            }
+        .article-content__input--file-label:active, .article-content__submit:active{
+            @include mixins.main-active;
+            }
+        .article-content__input--select-label{ /*** Corresponde a "Contact Us" ****/
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            }
+        .article-content__input--email{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            width: 80%;
+            }
+        .article-content__input--select{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            width: 80%;
+            }
+        }
+    
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{
+        @include mixins.main-sm (variables.$font-size-600-normal);
+        .article-content--about-me__p{  
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            text-align: left;
+        }
     }
     .article-content--about-me__a:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
+        @include mixins.main-active;
         }
-    .article-content__input--select-label{
-        font-size: 1.3rem;
-    }
-    .article-content__input--email{
-        font-size: 1.2rem;
-        width: 80%;
-    }
-    .article-content__input--select{
-        font-size: 1.2rem;
-        width: 80%;
-    }
 }
 
 /* Media Query 300p */
