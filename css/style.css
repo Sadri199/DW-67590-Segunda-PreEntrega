@@ -1330,10 +1330,10 @@ input[type=file] {
   .footer-container__p .footer-container__img {
     height: 1.5rem;
     object-fit: cover;
-    height: 2vh;
   }
   .footer-container__img--hidden {
     visibility: hidden;
+    height: 2vh;
   }
   /************************* Corresponde a "Our Movies" *************************/
   .article-content__ul {
@@ -1578,7 +1578,6 @@ input[type=file] {
   .footer-container__p .footer-container__img {
     height: 1.1rem;
     object-fit: cover;
-    height: 10px;
   }
   .footer-container__img--hidden {
     visibility: hidden;
