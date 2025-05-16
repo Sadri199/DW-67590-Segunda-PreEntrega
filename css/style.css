@@ -374,10 +374,12 @@ input[type=file] {
 }
 .footer-container .footer-container__p {
   color: rgba(239, 198, 155, 0.9);
+  flex-basis: 1;
 }
 .footer-container .footer-container__a {
   color: rgba(239, 198, 155, 0.9);
   transition-duration: 1s;
+  flex-shrink: 7;
   text-decoration: none;
 }
 .footer-container .footer-container__a:hover {
@@ -387,6 +389,7 @@ input[type=file] {
 }
 .footer-container .footer-container__img {
   border-radius: 50%;
+  height: 5vh;
 }
 
 /* Rebuild de Media Queries */
@@ -1327,6 +1330,7 @@ input[type=file] {
   .footer-container__p .footer-container__img {
     height: 1.5rem;
     object-fit: cover;
+    height: 2vh;
   }
   .footer-container__img--hidden {
     visibility: hidden;
@@ -1574,6 +1578,7 @@ input[type=file] {
   .footer-container__p .footer-container__img {
     height: 1.1rem;
     object-fit: cover;
+    height: 10px;
   }
   .footer-container__img--hidden {
     visibility: hidden;

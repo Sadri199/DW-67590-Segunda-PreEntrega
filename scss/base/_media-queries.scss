@@ -617,6 +617,7 @@
         .footer-container__img{
             height: variables.$logo-height-600;
             object-fit: cover;
+            height: 2vh;
         }
     }
     .footer-container__img--hidden{
@@ -791,6 +792,7 @@
         .footer-container__img{
             height: variables.$logo-height-320;
             object-fit: cover;
+            height: 10px;
         }
     }
     .footer-container__img--hidden{

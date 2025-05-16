@@ -15,10 +15,12 @@
     background-color: variables.$bg-color-header-footer;
     .footer-container__p {
         color: variables.$color-next-page;
+        flex-basis: 1;
     }
     .footer-container__a{
         color: variables.$color-next-page;
         transition-duration: 1s;
+        flex-shrink: 7;
         text-decoration: none;
     }
     .footer-container__a:hover {
@@ -28,5 +30,6 @@
     }
     .footer-container__img{
         border-radius: 50%;
+        height: 5vh;
     }
 }
