@@ -1,0 +1,194 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/extends";
+
+.body__main{ 
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+.main__section-title{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    .main__article-title{ 
+        color: variables.$color-main;
+    }
+    .article-title__h1{
+        @include mixins.main;
+    }
+    .article-title__h2{
+        @include mixins.main;
+        text-decoration: underline;
+        white-space: pre-line;
+    }
+}
+
+.main__section-content{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    .main__article-content{ 
+        color: variables.$color-main;
+    }
+    .article-content__p {
+        @include mixins.main;
+        text-align: left;
+        white-space: pre-line;
+    }
+    .article-content__a{
+        @include mixins.main-a;
+        &:hover{
+            @include mixins.main-a_hover;
+        }
+    }
+    #randomizer {
+        @extend .main-button;
+        &:hover{
+            @extend .main-button_hover;
+        }
+    }
+    
+}
+
+/************************* Corresponde a "Our Movies" *************************/
+
+.article-content__ul{
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+    align-content: center;
+    align-items: center;
+    .article-content__li{
+        @include mixins.main (1.2rem);
+        margin: 2% 0;
+    }
+    .article-content__a{
+        @include mixins.main-a;
+        &:hover{
+            @include mixins.main-a_hover;
+        }
+    }
+}
+
+/************************* Corresponde a "Add Movie" *************************/
+
+.article-content__form{ 
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    .article-content__input--text-label, .article-content__input--number-label{
+        @include mixins.main (1.4rem);
+    }
+    .article-content__input--text, .article-content__input--text-area{
+        width: 50%;
+        @include mixins.main (1.2rem);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+    }
+    .article-content__input--text-area{
+        overflow: hidden;
+        @include mixins.main (1.2rem);
+    }
+    .article-content__input--number{
+        width: 10%;
+        @include mixins.main (1.2rem);
+        border-radius: 10px;
+    }
+    .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+    .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+        @extend .main-placeholder;
+    }
+    .article-content__input--file-label, .article-content__submit{
+        @extend .main-button;
+        margin-top: 2%;
+        &:hover{
+            @extend .main-button_hover;
+            }
+    }
+}
+
+/* Para sacarle las flechas esas horribles al input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+/* Para sacarle las flechas esas horribles al input number */
+input[type="file"]{ 
+    display: none;
+}
+
+/************************* Corresponde a "About Me" *************************/
+
+.main__article-content--about-me{
+    @include mixins.main (1.4rem);
+    white-space: pre-line;
+    .article-content--about-me__p{
+        text-align: left;
+        .article-content--about-me__a{
+            @include mixins.main-a;
+            font-style: italic;
+            &:hover{
+                @include mixins.main-a_hover
+            }
+        }
+    }
+}
+
+.article-content--about-me__img{
+    @extend .main-images;    
+    &:hover{
+        @extend .main-images_hover;
+    }    
+}
+
+/************************* Corresponde a "Contact Us" *************************/
+
+.article-content__input--select-label{
+    @include mixins.main (1.4rem);
+    }
+.article-content__input--select{    
+    width: 40%;
+    @include mixins.main (1.2rem);
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    &:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;
+    }
+}
+.article-content__input--option{
+    text-align: center;
+}
+
+.article-content__input--email{
+    width: 50%;
+    @include mixins.main (1.2rem);
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    .article-content__input--email:focus{
+        background-color: variables.$bg-color-focus;
+        color: variables.$color-main;   
+    }
+    .article-content__input--email::placeholder{
+        @extend .main-placeholder;
+    }
+}

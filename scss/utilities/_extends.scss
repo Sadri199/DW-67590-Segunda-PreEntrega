@@ -1,0 +1,56 @@
+@use "variables";
+
+.main-button {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: variables.$font-size-all;
+    font-family: variables.$font-family-all;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-button_hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px  rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(.06,.38,.99,-0.01);
+}
+
+.main-placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: variables.$font-family-all;
+    height: 100px;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.main-images {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused; 
+}
+
+.main-images_hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+    @keyframes rotateMe {
+        from {
+            rotate: 0deg;
+            width: 50px;
+            height: 50px;
+        }
+        to{
+            rotate: 360deg;
+            width: 300px;
+            height: 300px;
+            translate: 100%;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@use "../utilities/variables";
+
+.header__nav {  
+    background-color: variables.$bg-color-header-footer;
+    overflow: hidden;
+}
+
+.body__header { 
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-self: baseline;
+}
+
+.nav__ul{
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    .nav__li{
+        flex-shrink: 0;
+        flex-basis: 1;
+        text-align: center;
+    }
+    .nav__a--current-page {
+        color: variables.$color-current-page;
+        background-color: variables.$bg-color-current-page;
+    }
+    .nav__a--next_page {
+        color: variables.$color-next-page;
+        transition-duration: 1s;
+    }
+    .nav__a--next_page:hover {
+        background-color: variables.$bg-color-next-page_hover;
+        box-shadow: variables.$box-shadow_hover;
+        transition-timing-function: linear;
+    }
+}
+
+
+
+
+

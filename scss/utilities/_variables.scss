@@ -1,0 +1,61 @@
+/*** Variables Body ***/
+/* Rem cheatsheet
+1rem = 16px
+2rem = 32px
+3rem = 48px
+4rem = 64px
+5rem = 80px
+6rem = 96px
+Rem cheatsheet */
+
+$font-size-all: 1rem;
+$font-family-all:"Overpass", sans-serif;
+
+/*** Variables Header / Navbar / Footer ***/
+
+$bg-color-header-footer: rgba(81, 28, 130, 0.9);
+$color-current-page: black;
+$bg-color-current-page: rgb(239, 198, 155);
+$color-next-page: rgba(239, 198, 155, 0.9); 
+$bg-color-next-page_hover: rgba(26, 9, 13, 0.7); 
+$box-shadow_hover: 2px 2px rgb(108, 117, 107);
+
+/*** Variables Main ***/
+
+$color-main: #8C14B8;
+$bg-color-focus: rgba($color: #d4c1c1, $alpha: 0.8);
+
+/*** Variables Media Query 1440px ***/
+
+$font-size-1440-h1: 2.3rem;
+$font-size-1440-h2: 2rem;
+$font-size-1440-normal: 1.5rem;
+$logo-height-1440: 1.5rem;
+
+/*** Variables Media Query 1024px ***/
+
+$font-size-1024-h1: 2.1rem;
+$font-size-1024-h2: 1.9rem;
+$font-size-1024-normal: 1.4rem;
+$logo-height-1024: 1.4rem;
+
+/*** Variables Media Query 768px ***/
+
+$font-size-768-h1: 1.8rem;
+$font-size-768-h2: 1.5rem;
+$font-size-768-normal: 1.2rem;
+$logo-height-768: 1.2rem;
+
+/*** Variables Media Query 600px ***/
+
+$font-size-600-h1: 1.3rem;
+$font-size-600-h2: 1.2rem;
+$font-size-600-normal: 1.1rem;
+$logo-height-600: 1.5rem;
+
+/*** Variables Media Query 357px ***/
+
+$font-size-320-h1: 1.1rem;
+$font-size-320-h2: 1rem;
+$font-size-320-normal: 0.9rem;
+$logo-height-320: 1.1rem;

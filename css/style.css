@@ -1,449 +1,276 @@
+@charset "UTF-8";
+/*** Variables Body ***/
+/* Rem cheatsheet
+1rem = 16px
+2rem = 32px
+3rem = 48px
+4rem = 64px
+5rem = 80px
+6rem = 96px
+Rem cheatsheet */
+/*** Variables Header / Navbar / Footer ***/
+/*** Variables Main ***/
+/*** Variables Media Query 1440px ***/
+/*** Variables Media Query 1024px ***/
+/*** Variables Media Query 768px ***/
+/*** Variables Media Query 600px ***/
+/*** Variables Media Query 357px ***/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .body {
-    min-height: 100vh;
-    display: grid;
-    grid-template-areas: 
-    "header header header header header header"
-    "main main main main main main"
-    "main main main main main main"
-    "main main main main main main"
-    "footer footer footer footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto repeat(3, 1fr) auto;
-    font-family: "Overpass", sans-serif;
-    font-size: 1rem;
-    background-image: radial-gradient(circle,rgba(26, 9, 13, 0.7) 0%,rgba(138, 43, 226, 1) 100%);
-    
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "header header header header header header" "main main main main main main" "main main main main main main" "main main main main main main" "footer footer footer footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto repeat(3, 1fr) auto;
+  font-family: "Overpass", sans-serif;
+  font-size: 1rem;
+  background-image: url("https://images.unsplash.com/photo-1740568439316-b0ff7ab84815?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), radial-gradient(circle, rgba(26, 9, 13, 0.7) 0%, rgb(138, 43, 226) 100%);
+  background-size: cover;
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .body{
-        grid-template-areas: 
-        "header header header"
-        "main main main"
-        "main main main"
-        "main main main"
-        "footer footer footer";
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto repeat(3, 1fr) auto;
-    }
+.hidden {
+  font-size: 20px;
+  display: none;
+  left: 100px;
 }
 
-.header__nav {  
-    background-color: rgb(138, 43, 226);
-    overflow: hidden;
+.header__nav {
+  background-color: rgba(81, 28, 130, 0.9);
+  overflow: hidden;
 }
 
-.body__header { 
-    grid-area: header;
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    align-self: baseline;
+.body__header {
+  grid-area: header;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: baseline;
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .body__header{
-        grid-area: header;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
+.nav__ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.nav__ul .nav__li {
+  flex-shrink: 0;
+  flex-basis: 1;
+  text-align: center;
+}
+.nav__ul .nav__a--current-page {
+  color: black;
+  background-color: rgb(239, 198, 155);
+}
+.nav__ul .nav__a--next_page {
+  color: rgba(239, 198, 155, 0.9);
+  transition-duration: 1s;
+}
+.nav__ul .nav__a--next_page:hover {
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: linear;
 }
 
-.nav__ul{
-    list-style-type: none;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
+/* These mixins are adaptations of _extend, because media queries don't like extends */
+/* Mixins for 600p and 300p */
+.main-button, .main__section-content #randomizer, .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+  color: black;
+  background-color: rgb(239, 198, 155);
+  transition-duration: 1s;
+  border-radius: 5px;
+  border-color: rgb(108, 117, 107);
+  font-size: 1rem;
+  font-family: "Overpass", sans-serif;
+  text-align: center;
+  cursor: pointer;
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .nav__ul{
-        display: flex;
-        flex-flow: column wrap;
-        align-items: flex-end;
-    }
+.main-button_hover, .main__section-content #randomizer:hover, .article-content__form .article-content__input--file-label:hover, .article-content__form .article-content__submit:hover {
+  color: rgb(239, 198, 155);
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
 }
 
-.nav__li{
-    flex-shrink: 0;
-    flex-basis: 1;
-    text-align: center;
+.main-placeholder, .article-content__form .article-content__input--text::placeholder, .article-content__form .article-content__input--text-area::placeholder, .article-content__form .article-content__input--number::placeholder, .article-content__input--email .article-content__input--email::placeholder {
+  color: rgb(108, 117, 107);
+  background-color: rgba(223, 194, 242, 0.5);
+  font-family: "Overpass", sans-serif;
+  height: 100px;
+  opacity: 0.9;
+  text-align: center;
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .nav__li{
-        margin: 5px 0;
-    }
+.main-images, .article-content--about-me__img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 20%;
+  transition: border-radius 1s linear;
+  animation: rotateMe 4s infinite paused;
 }
 
-.nav__a--current-page {
-    color: black;
-    background-color: rgb(239, 198, 155);
+.main-images_hover, .article-content--about-me__img:hover {
+  animation-play-state: running;
+  border-radius: 70%;
+  transform: scaleX(-1);
+}
+@keyframes rotateMe {
+  from {
+    rotate: 0deg;
+    width: 50px;
+    height: 50px;
+  }
+  to {
+    rotate: 360deg;
+    width: 300px;
+    height: 300px;
+    translate: 100%;
+  }
 }
 
-.nav__a--next_page {
-    color: rgb(239, 198, 155);
-    transition-duration: 1s;
+.body__main {
+  grid-area: main;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 5;
 }
 
-.nav__a--next_page:hover {
-    background-color: rgba(26, 9, 13, 0.7);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
+.main__section-title {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: center;
+}
+.main__section-title .main__article-title {
+  color: #8C14B8;
+}
+.main__section-title .article-title__h1 {
+  font-size: 1rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+}
+.main__section-title .article-title__h2 {
+  font-size: 1rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  text-decoration: underline;
+  white-space: pre-line;
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .nav__a--next_page:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
+.main__section-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
 }
-
-.body__main{ 
-    grid-area: main;
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 2;
-    grid-row-end: 5;
+.main__section-content .main__article-content {
+  color: #8C14B8;
 }
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .body__main{
-        grid-area: main;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 2;
-        grid-row-end: 5;
-    }
+.main__section-content .article-content__p {
+  font-size: 1rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  text-align: left;
+  white-space: pre-line;
 }
-
-.main__section-title{
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-    justify-content: center;
+.main__section-content .article-content__a {
+  color: black;
+  transition-duration: 1s;
 }
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .main__section-title{
-    flex-flow: column wrap;
-    }
+.main__section-content .article-content__a:hover {
+  color: rgb(239, 198, 155);
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
 }
-
-.main__article-title{ 
-    color: rgb(239, 198, 155);
-}
-
-.article-title__h1{
-    font-size: 2.2rem;
-    text-align: center;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-title__h1{
-        font-size: 2.5rem;
-    }
-}
-
-.article-title__h2{
-    font-size: 2rem;
-    text-decoration: underline;
-    text-align: center;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-title__h2{
-        font-size: 2.2rem;
-    }
-}
-
-.main__section-content{ /* terminar de arreglar flex, sacar lorem y colocar aside */
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .main__section-content{
-        flex-flow: row wrap;
-        align-items: stretch;
-        justify-content: center;
-    }
-}
-
-.main__article-content{ 
-    color: rgb(239, 198, 155);
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .main__article-content{
-        flex-grow: 1;
-    }
-}
-
-.article-content__p {
-    font-size: 1rem;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__p{
-        font-size: 1.3rem;
-        margin-top: 50px;
-    }
-}
-
-.article-content__a{
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-}
-
-.article-content__a:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__a:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__a--button{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        text-decoration: none;
-    }
-}
-
-#randomizer {
-    color: black;
-    background-color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    border-radius: 5px;
-    border-color: rgb(108, 117, 107);
-    margin-bottom: 1%;
-    font-size: 1rem;
-    text-align: center;
-    cursor: pointer;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    #randomizer{
-        border-radius: 10px;
-        font-size: 1.3rem;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        flex-grow: 2;
-        cursor: none;
-    }
-}
-
-#randomizer:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    #randomizer:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
-}
-
-.body__footer{
-    grid-area: footer;
-    grid-column-start: 1;
-    grid-column-end: 7;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .body__footer{
-        grid-area: footer;
-        grid-column-start: 1;
-        grid-column-end: 4;
-    }
-}
-
-.footer-container{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    margin-top: 10px;
-    background-color: blueviolet;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .footer-container{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
-}
-
-.footer-container__p {
-    color: rgb(239, 198, 155);
-    font-size: 1rem;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .footer-container__p{
-        font-size: 1.3rem;
-    }
-}
-
-.footer-container__a{
-    color: rgb(239, 198, 155);
-    transition-duration: 1s;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-.footer-container__a:hover {
-    background-color: rgba(26, 9, 13, 0.7);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-.footer-container__img{
-    border-radius: 50%;
-    margin: auto;
-    height: 1rem;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .footer-container__img{
-        height: 1.5rem;
-
-    }
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .footer-container__img--hidden{
-        visibility: hidden;
-    }
-}
-
 /************************* Corresponde a "Our Movies" *************************/
-
-.article-content__ul{
-    display: flex;
-    flex-flow: column nowrap;
-    list-style-type: none;
-    align-content: center;
-    align-items: center;
+.article-content__ul {
+  display: flex;
+  flex-flow: column nowrap;
+  list-style-type: none;
+  align-content: center;
+  align-items: center;
+}
+.article-content__ul .article-content__li {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  margin: 2% 0;
+}
+.article-content__ul .article-content__a {
+  color: black;
+  transition-duration: 1s;
+}
+.article-content__ul .article-content__a:hover {
+  color: rgb(239, 198, 155);
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
 }
 
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__ul{
-        display: flex;
-        flex-flow: column wrap;
-        align-content: center;
-        align-items: center;
-    }
-}
-
-.article-content__li{ 
-    color: rgb(239, 198, 155);
-    font-size: 1rem;
-    margin: 2% 0;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__li{
-        font-size: 1.3rem;
-        margin: 2% 0;
-    }
-}
 /************************* Corresponde a "Add Movie" *************************/
-
-.article-content__form{ 
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+.article-content__form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__form{
-        display: flex;
-        flex-flow: column wrap;
-    }
+.article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
 }
-
-.article-content__input--text-label, .article-content__input--number-label{
-    font-family: inherit;
-    font-size: 1.1rem;
+.article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+  width: 50%;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  resize: none;
+  margin-bottom: 1%;
+  border-radius: 10px;
 }
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--text-label, .article-content__input--number-label{
-        font-size: 1.3rem;
-    }
+.article-content__form .article-content__input--text-area {
+  overflow: hidden;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
 }
-
-.article-content__input--text, .article-content__input--text-area{
-    width: 30%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
-    resize: none;
-    margin-bottom: 1%;
-    border-radius: 10px;
+.article-content__form .article-content__input--number {
+  width: 10%;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  border-radius: 10px;
 }
-
-.article-content__input--text-area{
-    overflow: hidden;
+.article-content__form .article-content__input--text:focus, .article-content__form .article-content__input--text-area:focus, .article-content__form .article-content__input--number:focus {
+  background-color: rgba(212, 193, 193, 0.8);
+  color: #8C14B8;
 }
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--text, .article-content__input--text-area{
-        width: 80%;
-        font-size: 1.2rem;
-    }
+.article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+  margin-top: 2%;
 }
-
-.article-content__input--number{
-    width: 10%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
-    text-align: center;
-    border-radius: 10px;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--number{
-        width: 30%;
-        font-size: 1.2rem;
-    }
-}
-
 /* Para sacarle las flechas esas horribles al input number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -455,185 +282,1413 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
+
 /* Para sacarle las flechas esas horribles al input number */
-
-.article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
+input[type=file] {
+  display: none;
 }
 
-.article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
-    color: rgb(108, 117, 107);
-    background-color: rgba(223, 194, 242, 0.5);
-    height: 100px;
-    opacity: 0.9;
+/************************* Corresponde a "About Me" *************************/
+.main__article-content--about-me {
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  white-space: pre-line;
+}
+.main__article-content--about-me .article-content--about-me__p {
+  text-align: left;
+}
+.main__article-content--about-me .article-content--about-me__p .article-content--about-me__a {
+  color: black;
+  transition-duration: 1s;
+  font-style: italic;
+}
+.main__article-content--about-me .article-content--about-me__p .article-content--about-me__a:hover {
+  color: rgb(239, 198, 155);
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+}
+
+/************************* Corresponde a "Contact Us" *************************/
+.article-content__input--select-label {
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+}
+
+.article-content__input--select {
+  width: 40%;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  resize: none;
+  margin-bottom: 1%;
+  border-radius: 10px;
+}
+.article-content__input--select:focus {
+  background-color: rgba(212, 193, 193, 0.8);
+  color: #8C14B8;
+}
+
+.article-content__input--option {
+  text-align: center;
+}
+
+.article-content__input--email {
+  width: 50%;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #8C14B8;
+  font-family: "Overpass", sans-serif;
+  resize: none;
+  margin-bottom: 1%;
+  border-radius: 10px;
+}
+.article-content__input--email .article-content__input--email:focus {
+  background-color: rgba(212, 193, 193, 0.8);
+  color: #8C14B8;
+}
+.body__footer {
+  grid-area: footer;
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.footer-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  margin-top: 10px;
+  background-color: rgba(81, 28, 130, 0.9);
+}
+.footer-container .footer-container__p {
+  color: rgba(239, 198, 155, 0.9);
+}
+.footer-container .footer-container__a {
+  color: rgba(239, 198, 155, 0.9);
+  transition-duration: 1s;
+  text-decoration: none;
+}
+.footer-container .footer-container__a:hover {
+  background-color: rgba(26, 9, 13, 0.7);
+  box-shadow: 2px 2px rgb(108, 117, 107);
+  transition-timing-function: linear;
+}
+.footer-container .footer-container__img {
+  border-radius: 50%;
+}
+
+/* Rebuild de Media Queries */
+/* Media Query 1440p */
+@media screen and (max-width: 1440px) {
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .nav__li {
+    font-size: 1.5rem;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 2.3rem;
     text-align: center;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--text-area::placeholder{
-        height: 80px;
-    }
-}
-
-
-input[type="file"]{ 
-    display: none;
-}
-
-.article-content__input--file-label, .article-content__submit{
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-decoration: underline;
+    white-space: pre-line;
+  }
+  .main__section-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+  .main__section-content .article-content__p {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    white-space: pre-line;
+  }
+  .main__section-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__section-content .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .main__section-content #randomizer {
     color: black;
     background-color: rgb(239, 198, 155);
     transition-duration: 1s;
     border-radius: 5px;
     border-color: rgb(108, 117, 107);
-    font-size: 1rem;
-    font-family: inherit;
-    margin-top: 2%;
+    font-size: 1.5rem;
+    font-family: "Overpass", sans-serif;
     text-align: center;
     cursor: pointer;
-}
-
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--file-label, .article-content__submit{
-        font-size: 1.3rem;
-        margin-top: 4%;
-        }
-}
-
-.article-content__input--file-label:hover, .article-content__submit:hover{
+  }
+  .main__section-content #randomizer:hover {
     color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--file-label:active, .article-content__submit:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
-}
-
-/************************* Corresponde a "About Me" *************************/
-
-.main__article-content--about-me{
-    font-family: inherit;
-    color: rgb(239, 198, 155);
-}
-
-.article-content--about-me__p{
-    text-align: left;
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .footer-container {
     font-size: 1.5rem;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content--about-me__p{
-        text-align: center;
-        font-size: 1.8rem;
-    }
-}
-
-.article-content--about-me__a{
+  }
+  .footer-container__img {
+    height: 1.5rem;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  .article-content__ul .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .article-content__ul .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 50%;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__form .article-content__input--text-area {
+    overflow: hidden;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    width: 10%;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    border-radius: 10px;
+  }
+  .article-content__form .article-content__input--text:focus, .article-content__form .article-content__input--text-area:focus, .article-content__form .article-content__input--number:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__form .article-content__input--text::placeholder, .article-content__form .article-content__input--text-area::placeholder, .article-content__form .article-content__input--number::placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
     color: black;
     background-color: rgb(239, 198, 155);
     transition-duration: 1s;
-    font-style: italic;
-}
-
-.article-content--about-me__a:hover{
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.1);
-    box-shadow: 2px 2px  rgb(108, 117, 107);
-    transition-timing-function: linear;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content--about-me__a:active{
-        color: rgb(239, 198, 155);
-        background-color: rgba(26, 9, 13, 0.1);
-        box-shadow: 2px 2px  rgb(108, 117, 107);
-        transition-timing-function: linear;
-        }
-}
-
-/************************* Corresponde a "About Me" *************************/
-
-/************************* Corresponde a "Contact Us" *************************/
-
-.article-content__input--select-label{
-    font-family: inherit;
-    font-size: 1.1rem;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--select-label{
-        font-size: 1.3rem;
-    }
-}
-
-.article-content__input--email{
-    width: 33%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.5rem;
+    font-family: "Overpass", sans-serif;
     text-align: center;
+    cursor: pointer;
+    margin-top: 2%;
+  }
+  .article-content__form .article-content__input--file-label:hover, .article-content__form .article-content__submit:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    white-space: pre-line;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    text-align: left;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a {
+    color: black;
+    transition-duration: 1s;
+    font-style: italic;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .article-content--about-me__img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused;
+  }
+  .article-content--about-me__img:hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+  }
+  @keyframes rotateMe {
+    from {
+      rotate: 0deg;
+      width: 50px;
+      height: 50px;
+    }
+    to {
+      rotate: 360deg;
+      width: 300px;
+      height: 300px;
+      translate: 100%;
+    }
+  }
+  /************************* Corresponde a "Contact Us" *************************/
+  .article-content__input--select-label {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__input--select {
+    width: 40%;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
     resize: none;
     margin-bottom: 1%;
     border-radius: 10px;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--email{
-        font-size: 1.2rem;
-        width: 80%;
-    }
-}
-
-.article-content__input--email:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
-}
-
-.article-content__input--email::placeholder{
+  }
+  .article-content__input--select:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--option {
+    text-align: center;
+  }
+  .article-content__input--email {
+    width: 50%;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__input--email .article-content__input--email:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--email .article-content__input--email::placeholder {
     color: rgb(108, 117, 107);
     background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
     opacity: 0.9;
     text-align: center;
+  }
 }
-
-.article-content__input--select{    
-    width: 30%;
-    font-family: inherit;
-    font-size: 1rem;
-    color: inherit;
-    background-color: rgba(138, 43, 226, 0.2);
+/* Media Query 1024p */
+@media screen and (max-width: 1024px) {
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .nav__li {
+    font-size: 1.4rem;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 2.1rem;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 1.9rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-decoration: underline;
+    white-space: pre-line;
+  }
+  .main__section-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+  .main__section-content .article-content__p {
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    white-space: pre-line;
+  }
+  .main__section-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__section-content .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .main__section-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.4rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    cursor: pointer;
+  }
+  .main__section-content #randomizer:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .footer-container {
+    font-size: 1.4rem;
+  }
+  .footer-container__img {
+    height: 1.4rem;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  .article-content__ul .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .article-content__ul .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 50%;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
     resize: none;
     margin-bottom: 1%;
     border-radius: 10px;
-}
-
-@media screen and (min-width:300px) and (max-width: 600px){
-    .article-content__input--select{
-        font-size: 1.2rem;
-        width: 80%;
-    }
-}
-
-.article-content__input--select:focus{
-    background-color: rgba(223, 194, 242, 0.7);
-    color: rgb(26, 9, 13);
-}
-
-.article-content__input--option{
+  }
+  .article-content__form .article-content__input--text-area {
+    overflow: hidden;
+    font-size: 1.4rem;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    width: 10%;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    border-radius: 10px;
+  }
+  .article-content__form .article-content__input--text:focus, .article-content__form .article-content__input--text-area:focus, .article-content__form .article-content__input--number:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__form .article-content__input--text::placeholder, .article-content__form .article-content__input--text-area::placeholder, .article-content__form .article-content__input--number::placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.4rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2%;
+  }
+  .article-content__form .article-content__input--file-label:hover, .article-content__form .article-content__submit:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    white-space: pre-line;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    text-align: left;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a {
+    color: black;
+    transition-duration: 1s;
+    font-style: italic;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .article-content--about-me__img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused;
+  }
+  .article-content--about-me__img:hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+  }
+  @keyframes rotateMe {
+    from {
+      rotate: 0deg;
+      width: 50px;
+      height: 50px;
+    }
+    to {
+      rotate: 360deg;
+      width: 300px;
+      height: 300px;
+      translate: 100%;
+    }
+  }
+  /************************* Corresponde a "Contact Us" *************************/
+  .article-content__input--select-label {
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__input--select {
+    width: 40%;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__input--select:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--option {
+    text-align: center;
+  }
+  .article-content__input--email {
+    width: 50%;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__input--email .article-content__input--email:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--email .article-content__input--email::placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+  }
+}
+/* Media Query 768p */
+@media screen and (max-width: 768px) {
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .nav__li {
+    font-size: 1.2rem;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-decoration: underline;
+    white-space: pre-line;
+  }
+  .main__section-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+  .main__section-content .article-content__p {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    white-space: pre-line;
+  }
+  .main__section-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__section-content .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .main__section-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.2rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    cursor: pointer;
+  }
+  .main__section-content #randomizer:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .footer-container {
+    font-size: 1.2rem;
+  }
+  .footer-container__img {
+    height: 1.2rem;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  .article-content__ul .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .article-content__ul .article-content__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__form .article-content__input--text-area {
+    overflow: hidden;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    width: 10%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    border-radius: 10px;
+  }
+  .article-content__form .article-content__input--text:focus, .article-content__form .article-content__input--text-area:focus, .article-content__form .article-content__input--number:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__form .article-content__input--text::placeholder, .article-content__form .article-content__input--text-area::placeholder, .article-content__form .article-content__input--number::placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.2rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2%;
+  }
+  .article-content__form .article-content__input--file-label:hover, .article-content__form .article-content__submit:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    white-space: pre-line;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    text-align: left;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a {
+    color: black;
+    transition-duration: 1s;
+    font-style: italic;
+  }
+  .main__article-content--about-me .article-content--about-me__p .article-content--about-me__a:hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
+  }
+  .article-content--about-me__img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused;
+  }
+  .article-content--about-me__img:hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+  }
+  @keyframes rotateMe {
+    from {
+      rotate: 0deg;
+      width: 50px;
+      height: 50px;
+    }
+    to {
+      rotate: 360deg;
+      width: 300px;
+      height: 300px;
+      translate: 100%;
+    }
+  }
+  /************************* Corresponde a "Contact Us" *************************/
+  .article-content__input--select-label {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__input--select {
+    width: 40%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__input--select:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--option {
+    text-align: center;
+  }
+  .article-content__input--email {
+    width: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #8C14B8;
+    font-family: "Overpass", sans-serif;
+    resize: none;
+    margin-bottom: 1%;
+    border-radius: 10px;
+  }
+  .article-content__input--email .article-content__input--email:focus {
+    background-color: rgba(212, 193, 193, 0.8);
+    color: #8C14B8;
+  }
+  .article-content__input--email .article-content__input--email::placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: "Overpass", sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+  }
+}
+/* Media Query 600p */
+@media screen and (max-width: 600px) { /* Reacomodar todo, armar los mixins espcíficos */
+  .body {
+    grid-template-areas: "header header header" "main main main" "main main main" "main main main" "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto repeat(3, 1fr) auto;
+    background-image: url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), radial-gradient(circle, rgba(26, 9, 13, 0.7) 0%, rgb(138, 43, 226) 100%);
+    background-size: cover;
+  }
+  .body__header {
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .nav__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+  }
+  .nav__li {
+    margin: 5px 0;
+    font-size: 1.1rem;
+  }
+  .nav__a--next_page:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .main__section-title {
+    flex-flow: column wrap;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-content {
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .main__article-content {
+    flex-grow: 1;
+  }
+  .main__article-content .article-content__p {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    margin-top: 50px;
+    white-space: pre-line;
+  }
+  .main__article-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__article-content .article-content__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .main__article-content .article-content__a--button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .main__article-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.1rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+  }
+  .main__article-content #randomizer:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__footer {
+    grid-area: footer;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .footer-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .footer-container__p {
+    font-size: 1.1rem;
+  }
+  .footer-container__p .footer-container__img {
+    height: 1.5rem;
+    object-fit: cover;
+  }
+  .footer-container__img--hidden {
+    visibility: hidden;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 80%;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    width: 30%;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text-area::placeholder {
+    height: 80px;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 1.1rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+    margin-top: 4%;
+  }
+  .article-content__form .article-content__input--file-label:active, .article-content__form .article-content__submit:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .article-content__form .article-content__input--select-label { /*** Corresponde a "Contact Us" ****/
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--email {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  .article-content__form .article-content__input--select {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+  }
+  .article-content--about-me__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+}
+/* Media Query 320p */
+@media screen and (max-width: 320px) {
+  .body {
+    grid-template-areas: "header header header" "main main main" "main main main" "main main main" "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto repeat(3, 1fr) auto;
+    background-image: url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), radial-gradient(circle, rgba(26, 9, 13, 0.7) 0%, rgb(138, 43, 226) 100%);
+    background-size: cover;
+  }
+  .body__header {
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .nav__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+  }
+  .nav__li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  .nav__a--next_page:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .main__section-title {
+    flex-flow: column wrap;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-content {
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .main__article-content {
+    flex-grow: 1;
+  }
+  .main__article-content .article-content__p {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    margin-top: 50px;
+    white-space: pre-line;
+  }
+  .main__article-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__article-content .article-content__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .main__article-content .article-content__a--button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .main__article-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 0.9rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+  }
+  .main__article-content #randomizer:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__footer {
+    grid-area: footer;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .footer-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-container__p {
+    flex-basis: 50px;
+    font-size: 0.9rem;
+  }
+  .footer-container__p .footer-container__img {
+    height: 1.1rem;
+    object-fit: cover;
+  }
+  .footer-container__img--hidden {
+    visibility: hidden;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 80%;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text-area::placeholder {
+    height: 80px;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 0.9rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+    padding: 0px 5px;
+  }
+  .article-content__form .article-content__input--file-label:active, .article-content__form .article-content__submit:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .article-content__form .article-content__input--select-label { /*** Corresponde a "Contact Us" ****/
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--email {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  .article-content__form .article-content__input--select {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+  }
+  .article-content--about-me__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
 }
 
-
-/************************* Corresponde a "Contact Us" *************************/
+/*# sourceMappingURL=style.css.map */

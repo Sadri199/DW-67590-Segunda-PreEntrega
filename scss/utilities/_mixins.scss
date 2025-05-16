@@ -1,0 +1,111 @@
+@use "variables";
+
+@mixin main ($new-size: variables.$font-size-all){
+    font-size: $new-size;
+    text-align: center;
+    background-color: rgba($color: #ffffff, $alpha: 0.6);
+    color: variables.$color-main;
+    font-family: variables.$font-family-all;
+}
+
+@mixin main-a {
+    color: black;
+    transition-duration: 1s;
+}
+
+@mixin main-a_hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px  rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(.06,.38,.99,-0.01);
+}
+
+/* These mixins are adaptations of _extend, because media queries don't like extends */
+
+@mixin main-button ($new-size: variables.$font-size-all) {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-radius: 5px;
+    border-color: rgb(108, 117, 107);
+    font-size: $new-size;
+    font-family: variables.$font-family-all;
+    text-align: center;
+    cursor: pointer;
+}
+
+@mixin main-button_hover {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.7);
+    box-shadow: 2px 2px  rgb(108, 117, 107);
+    transition-timing-function: cubic-bezier(.06,.38,.99,-0.01);
+}
+
+@mixin main-placeholder {
+    color: rgb(108, 117, 107);
+    background-color: rgba(223, 194, 242, 0.5);
+    font-family: variables.$font-family-all;
+    background-size: cover;
+    opacity: 0.9;
+    text-align: center;
+}
+
+@mixin main-images {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20%;
+    transition: border-radius 1s linear;
+    animation: rotateMe 4s infinite paused; 
+}
+
+@mixin main-images_hover {
+    animation-play-state: running;
+    border-radius: 70%;
+    transform: scaleX(-1);
+    @keyframes rotateMe {
+        from {
+            rotate: 0deg;
+            width: 50px;
+            height: 50px;
+        }
+        to{
+            rotate: 360deg;
+            width: 300px;
+            height: 300px;
+            translate: 100%;
+        }
+    }
+}
+
+/* Mixins for 600p and 300p */
+
+@mixin main-sm ($new-size: variables.$font-size-all){
+    font-size: $new-size;
+    text-align: center;
+    background-color: rgba($color: #D4D4D4, $alpha: 0.9);
+    color: #660F85;
+    font-family: variables.$font-family-all;
+}
+
+@mixin main-active {
+        color: rgb(239, 198, 155);
+        background-color: rgba(26, 9, 13, 0.6);
+        box-shadow: 2px 2px  rgb(108, 117, 107);
+        transition-timing-function: linear;
+}
+
+@mixin main-button-sm ($new-size: variables.$font-size-all) {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: $new-size;
+    font-family: variables.$font-family-all;
+    text-align: center;
+    border-radius: 10px;
+    font-size: variables.$font-size-600-normal;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+}

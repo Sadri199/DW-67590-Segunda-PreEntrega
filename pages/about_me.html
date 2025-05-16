@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
@@ -35,22 +37,51 @@
         </section>
         <section class="main__section-content">
             <article class="main__article-content--about-me">
-                <br>
-                <p class="article-content--about-me__p">Hi, my name is Adrian Satriani and I'm starting to learn about html and css. <br>For now, this website will be very simple, but I will try to mimic (and improve) a project I made last year in <a href="https://github.com/Sadri199/AdrianSatriani_EntregaFinal/tree/main" class="article-content--about-me__a">Django!</a></p>
-                <br>
-                <br>
+                <p class="article-content--about-me__p">Hi, my name is Adrian Satriani, I'm from Uruguay and I'm starting my journey to become a Fullstack Developer.
+                Since 2024 I decided to start learning how to code, there's a lot to learn and I'm ready for the challenge ahead!
+                <br>For now, this website will be static, but I will try to mimic (and improve) a project I made last year with Python in <a href="https://github.com/Sadri199/AdrianSatriani_EntregaFinal/tree/main" class="article-content--about-me__a">Django!</a>
+            <img class="article-content--about-me__img" id="myImage" src="../img/image.png" alt="A picture of my face!" onclick="change(this)">
+            </p>
             </article>
         </section>
+        <div class="hidden" id="hidden">
+        <a href="./not_yet.html">.</a>
+        </div>
     </main>
     <aside>
         <!--No se que agregar acá, pero dejo el tag por semántica.-->
     </aside>
     <footer class="body__footer">
-        <div class="footer-container">
+        <div class="footer-container cssanimation leDoorCloseRight sequence">
             <p class="footer-container__p">© Sadri 2025</p>
             <a class="footer-container__a" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"><img src="../img/linkedin.png" alt="Link to LinkedIn" class="footer-container__img"> <span class="footer-container__img--hidden">My LinkedIn!</span></a>
             <a class="footer-container__a" href="https://github.com/Sadri199"><img src="../img/github.png" alt="Link to Github" class="footer-container__img"><span class="footer-container__img--hidden">My Github!</span></a>
         </div>
     </footer>
+    <script>
+    const myImage = document.getElementById("myImage");
+    setTimeout(appear, 10000)
+    setTimeout(disappear, 20000)
+    
+    let flag = true
+
+    function change(image) {
+        if (flag == true) {
+        myImage.src = "../img/lgg310.jpg";
+        flag = false;
+        } else {
+           myImage.src = "../img/image.png";
+           flag = true; 
+        }
+    }
+
+    function appear (){
+        document.getElementById("hidden").style.display = "inline-block";
+    }
+
+    function disappear (){
+        document.getElementById("hidden").style.display = "none";
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,868 @@
+/* Rebuild de Media Queries */
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+/* Media Query 1440p */
+
+@media screen and (max-width: 1440px) {
+    .body__main{ 
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .nav__li{
+        font-size: variables.$font-size-1440-normal;
+        }
+    .main__section-title{
+        .article-title__h1{
+            @include mixins.main (variables.$font-size-1440-h1);
+        }
+        .article-title__h2{
+            @include mixins.main (variables.$font-size-1440-h2);
+            text-decoration: underline;
+            white-space: pre-line;
+        }
+    }
+    .main__section-content{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        .article-content__p {
+            @include mixins.main (variables.$font-size-1440-normal);
+            text-align: left;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+        #randomizer {
+            @include mixins.main-button (variables.$font-size-1440-normal);
+            &:hover{
+                @include mixins.main-button_hover;
+            }
+        }
+        
+    }
+    .footer-container{
+        font-size: variables.$font-size-1440-normal;
+    }
+    .footer-container__img{
+        height: variables.$logo-height-1440;
+    }
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{
+        display: flex;
+        flex-flow: column nowrap;
+        list-style-type: none;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+            @include mixins.main (variables.$font-size-1440-normal);
+            margin: 2% 0;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+    }
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{ 
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main (variables.$font-size-1440-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 50%;
+            @include mixins.main (variables.$font-size-1440-normal);
+            resize: none;
+            margin-bottom: 1%;
+            border-radius: 10px;
+        }
+        .article-content__input--text-area{
+            overflow: hidden;
+            @include mixins.main (variables.$font-size-1440-normal);
+        }
+        .article-content__input--number{
+            width: 10%;
+            @include mixins.main (variables.$font-size-1440-normal);
+            border-radius: 10px;
+        }
+        .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+        .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+            @include mixins.main-placeholder;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button (variables.$font-size-1440-normal);
+            margin-top: 2%;
+            &:hover{
+                @include mixins.main-button_hover;
+                }
+        }
+    }
+
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{ 
+        @include mixins.main (variables.$font-size-1440-normal);
+        white-space: pre-line;
+        .article-content--about-me__p{
+            text-align: left;
+            .article-content--about-me__a{
+                @include mixins.main-a;
+                font-style: italic;
+                &:hover{
+                    @include mixins.main-a_hover
+                }
+            }
+        }
+    }
+
+    .article-content--about-me__img{
+        @include mixins.main-images;    
+        &:hover{
+            @include mixins.main-images_hover;
+        }    
+    }
+
+/************************* Corresponde a "Contact Us" *************************/
+
+    .article-content__input--select-label{
+        @include mixins.main (variables.$font-size-1440-normal);
+        }
+    .article-content__input--select{    
+        width: 40%;
+        @include mixins.main (variables.$font-size-1440-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        &:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+    }
+    .article-content__input--option{
+        text-align: center;
+    }
+    .article-content__input--email{
+        width: 50%;
+        @include mixins.main (variables.$font-size-1440-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        .article-content__input--email:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;   
+        }
+        .article-content__input--email::placeholder{
+            @include mixins.main-placeholder;
+        }
+    }
+    }
+
+/* Media Query 1024p */
+
+@media screen and (max-width:1024px) { 
+    .body__main{ 
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .nav__li{
+        font-size: variables.$font-size-1024-normal;
+        }
+    .main__section-title{
+        .article-title__h1{
+            @include mixins.main (variables.$font-size-1024-h1);
+        }
+        .article-title__h2{
+            @include mixins.main (variables.$font-size-1024-h2);
+            text-decoration: underline;
+            white-space: pre-line;
+        }
+    }
+    .main__section-content{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        .article-content__p {
+            @include mixins.main (variables.$font-size-1024-normal);
+            text-align: left;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+        #randomizer {
+            @include mixins.main-button (variables.$font-size-1024-normal);
+            &:hover{
+                @include mixins.main-button_hover;
+            }
+        }
+        
+    }
+    .footer-container{
+        font-size: variables.$font-size-1024-normal;
+    }
+    .footer-container__img{
+        height: variables.$logo-height-1024;
+    }
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{ 
+        display: flex;
+        flex-flow: column nowrap;
+        list-style-type: none;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+            @include mixins.main (variables.$font-size-1024-normal);
+            margin: 2% 0;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+    }
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{ 
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main (variables.$font-size-1024-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 50%;
+            @include mixins.main (variables.$font-size-1024-normal);
+            resize: none;
+            margin-bottom: 1%;
+            border-radius: 10px;
+        }
+        .article-content__input--text-area{
+            overflow: hidden;
+            @include mixins.main (variables.$font-size-1024-normal);
+        }
+        .article-content__input--number{
+            width: 10%;
+            @include mixins.main (variables.$font-size-1024-normal);
+            border-radius: 10px;
+        }
+        .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+        .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+            @include mixins.main-placeholder;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button (variables.$font-size-1024-normal);
+            margin-top: 2%;
+            &:hover{
+                @include mixins.main-button_hover;
+                }
+        }
+    }
+
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{ 
+        @include mixins.main (variables.$font-size-1024-normal);
+        white-space: pre-line;
+        .article-content--about-me__p{
+            text-align: left;
+            .article-content--about-me__a{
+                @include mixins.main-a;
+                font-style: italic;
+                &:hover{
+                    @include mixins.main-a_hover
+                }
+            }
+        }
+    }
+
+    .article-content--about-me__img{
+        @include mixins.main-images;    
+        &:hover{
+            @include mixins.main-images_hover;
+        }    
+    }
+
+/************************* Corresponde a "Contact Us" *************************/
+
+    .article-content__input--select-label{ 
+        @include mixins.main (variables.$font-size-1024-normal);
+        }
+    .article-content__input--select{    
+        width: 40%;
+        @include mixins.main (variables.$font-size-1024-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        &:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+    }
+    .article-content__input--option{
+        text-align: center;
+    }
+    .article-content__input--email{
+        width: 50%;
+        @include mixins.main (variables.$font-size-1024-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        .article-content__input--email:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;   
+        }
+        .article-content__input--email::placeholder{
+            @include mixins.main-placeholder;
+        }
+    }
+    }
+
+/* Media Query 768p */
+
+@media screen and (max-width:768px) { 
+    .body__main{ 
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .nav__li{
+        font-size: variables.$font-size-768-normal;
+        }
+    .main__section-title{
+        .article-title__h1{
+            @include mixins.main (variables.$font-size-768-h1);
+        }
+        .article-title__h2{
+            @include mixins.main (variables.$font-size-768-h2);
+            text-decoration: underline;
+            white-space: pre-line;
+        }
+    }
+    .main__section-content{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        .article-content__p {
+            @include mixins.main (variables.$font-size-768-normal);
+            text-align: left;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+        #randomizer {
+            @include mixins.main-button (variables.$font-size-768-normal);
+            &:hover{
+                @include mixins.main-button_hover;
+            }
+        }
+        
+    }
+    .footer-container{
+        font-size: variables.$font-size-768-normal;
+    }
+    .footer-container__img{
+        height: variables.$logo-height-768;
+    }
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{
+        display: flex;
+        flex-flow: column nowrap;
+        list-style-type: none;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+            @include mixins.main (variables.$font-size-768-normal);
+            margin: 2% 0;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+            &:hover{
+                @include mixins.main-a_hover;
+            }
+        }
+    }
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{  
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main (variables.$font-size-768-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 50%;
+            @include mixins.main (variables.$font-size-768-normal);
+            resize: none;
+            margin-bottom: 1%;
+            border-radius: 10px;
+        }
+        .article-content__input--text-area{
+            overflow: hidden;
+            @include mixins.main (variables.$font-size-768-normal);
+        }
+        .article-content__input--number{
+            width: 10%;
+            @include mixins.main (variables.$font-size-768-normal);
+            border-radius: 10px;
+        }
+        .article-content__input--text:focus, .article-content__input--text-area:focus, .article-content__input--number:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+        .article-content__input--text::placeholder, .article-content__input--text-area::placeholder, .article-content__input--number::placeholder{
+            @include mixins.main-placeholder;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button (variables.$font-size-768-normal);
+            margin-top: 2%;
+            &:hover{
+                @include mixins.main-button_hover;
+                }
+        }
+    }
+
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{ 
+        @include mixins.main (variables.$font-size-768-normal);
+        white-space: pre-line;
+        .article-content--about-me__p{
+            text-align: left;
+            .article-content--about-me__a{
+                @include mixins.main-a;
+                font-style: italic;
+                &:hover{
+                    @include mixins.main-a_hover
+                }
+            }
+        }
+    }
+
+    .article-content--about-me__img{
+        @include mixins.main-images;    
+        &:hover{
+            @include mixins.main-images_hover;
+        }    
+    }
+
+/************************* Corresponde a "Contact Us" *************************/
+
+    .article-content__input--select-label{ 
+        @include mixins.main (variables.$font-size-768-normal);
+        }
+    .article-content__input--select{    
+        width: 40%;
+        @include mixins.main (variables.$font-size-768-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        &:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;
+        }
+    }
+    .article-content__input--option{
+        text-align: center;
+    }
+    .article-content__input--email{
+        width: 50%;
+        @include mixins.main (variables.$font-size-768-normal);
+        resize: none;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        .article-content__input--email:focus{
+            background-color: variables.$bg-color-focus;
+            color: variables.$color-main;   
+        }
+        .article-content__input--email::placeholder{
+            @include mixins.main-placeholder;
+        }
+    }
+    }
+
+/* Media Query 600p */
+
+@media screen and (max-width: 600px){ /* Reacomodar todo, armar los mixins espcíficos */
+    .body{
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+        "main main main"
+        "main main main"
+        "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto repeat(3, 1fr) auto;
+        background-image:  url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+        radial-gradient(circle,rgba(26, 9, 13, 0.7) 0%,rgba(138, 43, 226, 1) 100%);
+        background-size: cover; 
+    }
+    .body__header{
+        grid-area: header;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .nav__ul{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+    }
+    .nav__li{
+        margin: 5px 0;
+        font-size: variables.$font-size-600-normal;
+    }
+    .nav__a--next_page:active{
+        @include mixins.main-active;
+    }
+    .body__main{
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .main__section-title{
+    flex-flow: column wrap;
+    .article-title__h1{
+        @include mixins.main-sm (variables.$font-size-600-h1);
+        }
+    .article-title__h2{
+        @include mixins.main-sm (variables.$font-size-600-h2);
+        }
+    }
+    .main__section-content{
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .main__article-content{
+        flex-grow: 1;
+        .article-content__p{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            text-align: left;
+            margin-top: 50px;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+        }
+        .article-content__a:active{
+            @include mixins.main-active;
+        }
+        .article-content__a--button{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            text-decoration: none;
+        }
+        #randomizer{
+            @include mixins.main-button-sm (variables.$font-size-600-normal);
+            &:active{
+                @include mixins.main-active;
+            }
+        }
+    }
+    .body__footer{
+        grid-area: footer;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .footer-container{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .footer-container__p{
+        font-size: variables.$font-size-600-normal;
+        .footer-container__img{
+            height: variables.$logo-height-600;
+            object-fit: cover;
+        }
+    }
+    .footer-container__img--hidden{
+            visibility: hidden;
+        }
+
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{ 
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+        @include mixins.main-sm (variables.$font-size-600-normal);
+            margin: 2% 0;
+        }
+    }
+    
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{
+        display: flex;
+        flex-flow: column wrap;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 80%;
+            @include mixins.main-sm (variables.$font-size-600-normal);
+        }
+        .article-content__input--number{
+            width: 30%;
+            @include mixins.main-sm (variables.$font-size-600-normal);
+        }
+        .article-content__input--text-area::placeholder{
+            height: 80px;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button-sm (variables.$font-size-600-normal);
+            margin-top: 4%;
+            }
+        .article-content__input--file-label:active, .article-content__submit:active{
+            @include mixins.main-active;
+            }
+        .article-content__input--select-label{ /*** Corresponde a "Contact Us" ****/
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            }
+        .article-content__input--email{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            width: 80%;
+            }
+        .article-content__input--select{
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            width: 80%;
+            }
+        }
+    
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{
+        @include mixins.main-sm (variables.$font-size-600-normal);
+        .article-content--about-me__p{  
+            @include mixins.main-sm (variables.$font-size-600-normal);
+            text-align: left;
+        }
+    }
+    .article-content--about-me__a:active{
+        @include mixins.main-active;
+        }
+}
+
+/* Media Query 320p */
+
+@media screen and (max-width: 320px) {
+    .body{
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+        "main main main"
+        "main main main"
+        "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto repeat(3, 1fr) auto;
+        background-image:  url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+        radial-gradient(circle,rgba(26, 9, 13, 0.7) 0%,rgba(138, 43, 226, 1) 100%);
+        background-size: cover; 
+    }
+    .body__header{
+        grid-area: header;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .nav__ul{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+    }
+    .nav__li{
+        margin: 5px 0;
+        font-size: variables.$font-size-320-normal;
+    }
+    .nav__a--next_page:active{
+        @include mixins.main-active;
+    }
+    .body__main{
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .main__section-title{
+    flex-flow: column wrap;
+    .article-title__h1{
+        @include mixins.main-sm (variables.$font-size-320-h1);
+        }
+    .article-title__h2{
+        @include mixins.main-sm (variables.$font-size-320-h2);
+        }
+    }
+    .main__section-content{
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .main__article-content{
+        flex-grow: 1;
+        .article-content__p{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            text-align: left;
+            margin-top: 50px;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+        }
+        .article-content__a:active{
+            @include mixins.main-active;
+        }
+        .article-content__a--button{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            text-decoration: none;
+        }
+        #randomizer{
+            @include mixins.main-button-sm (variables.$font-size-320-normal);
+            &:active{
+                @include mixins.main-active;
+            }
+        }
+    }
+    .body__footer{
+        grid-area: footer;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .footer-container{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .footer-container__p{
+        flex-basis: 50px;
+        font-size: variables.$font-size-320-normal;
+        .footer-container__img{
+            height: variables.$logo-height-320;
+            object-fit: cover;
+        }
+    }
+    .footer-container__img--hidden{
+            visibility: hidden;
+        }
+
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{ 
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+        @include mixins.main-sm (variables.$font-size-320-normal);
+            margin: 2% 0;
+        }
+    }
+    
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{
+        display: flex;
+        flex-flow: column wrap;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 80%;
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--number{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--text-area::placeholder{
+            height: 80px;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button-sm (variables.$font-size-320-normal);
+            padding: 0px 5px;
+            }
+        .article-content__input--file-label:active, .article-content__submit:active{
+            @include mixins.main-active;
+            }
+        .article-content__input--select-label{ /*** Corresponde a "Contact Us" ****/
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            }
+        .article-content__input--email{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            width: 80%;
+            }
+        .article-content__input--select{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            width: 80%;
+            }
+        }
+    
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{
+        @include mixins.main-sm (variables.$font-size-320-normal);
+        .article-content--about-me__p{  
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            text-align: left;
+        }
+    }
+    .article-content--about-me__a:active{
+        @include mixins.main-active;
+        }
+}
+
+
+
+
+

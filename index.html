@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
     <title>Home</title>
 </head>
@@ -17,7 +15,7 @@
     <header class="body__header">
         <nav id="horizontal_nav" class="header__nav">
             <ul class="nav__ul">
-                <li class="nav__li"><a href="./index.html" class="nav__a--current-page">Home</a></li>
+                <li class="nav__li"><a href="./index.html" class="nav__a--current-page ">Home</a></li>
                 <li class="nav__li"><a href="./pages/our_movies.html" class="nav__a--next_page">Our Movies</a></li>
                 <li class="nav__li"><a href="./pages/add_movie.html" class="nav__a--next_page">Add Movies</a></li>
                 <li class="nav__li"><a href="./pages/about_me.html" class="nav__a--next_page">About Me</a></li>
@@ -36,11 +34,12 @@
         </section>
         <section class="main__section-content">
             <article class="main__article-content">
-                <p class="article-content__p">Don't know what to watch? Click the button below to get a recommendation! Or, check the current titles in our database <a href="./pages/our_movies.html" class="article-content__a">here!</a></p>
+                <p class="article-content__p">Soon you'll be able to find all the movies that has ever existed on this site.
+                    We aspire to gather all the available information from any movie that has been created in a single place, so you don't have to search through the Web.
+                    "Who starred on that movie?" "When was this movie released?" and more questions can be answered here.
+
+                    Don't know what to watch? Click here <a href="" class="article-content__a--button"><button type="button" id="randomizer">Random Movie</button></a> to get a recommendation! Or, check the current titles in our database <a href="./pages/our_movies.html" class="article-content__a">here!</a></p>
                 <br>
-                <a href="./pages/not_yet.html" class="article-content__a--button">
-                    <button type="button" id="randomizer">Random Movie</button>
-                </a>
             </article>
         </section>
     </main>
@@ -48,9 +47,9 @@
         <!--No se que agregar acá, pero dejo el tag por semántica.-->
     </aside>
     <footer class="body__footer">
-        <div class="footer-container">
+        <div class="footer-container cssanimation leScaleXIn sequence" >
             <p class="footer-container__p">© Sadri 2025</p>
-            <a class="footer-container__a" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"><img src="./img/linkedin.png" alt="Link to LinkedIn" class="footer-container__img"> <span class="footer-container__img--hidden">My LinkedIn!</span></a>
+            <a class="footer-container__a" href="https://www.linkedin.com/in/adrian-satriani-jardin-86351b142/"><img src="./img/linkedin.png" alt="Link to LinkedIn" class="footer-container__img"><span class="footer-container__img--hidden">My LinkedIn!</span></a>
             <a class="footer-container__a" href="https://github.com/Sadri199"><img src="./img/github.png" alt="Link to Github" class="footer-container__img"><span class="footer-container__img--hidden">My Github!</span></a>
         </div>
     </footer>
