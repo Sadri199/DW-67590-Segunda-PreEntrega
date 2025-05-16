@@ -14,6 +14,7 @@ Rem cheatsheet */
 /*** Variables Media Query 1024px ***/
 /*** Variables Media Query 768px ***/
 /*** Variables Media Query 600px ***/
+/*** Variables Media Query 357px ***/
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +31,12 @@ Rem cheatsheet */
   font-size: 1rem;
   background-image: url("https://images.unsplash.com/photo-1740568439316-b0ff7ab84815?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), radial-gradient(circle, rgba(26, 9, 13, 0.7) 0%, rgb(138, 43, 226) 100%);
   background-size: cover;
+}
+
+.hidden {
+  font-size: 20px;
+  display: none;
+  left: 100px;
 }
 
 .header__nav {
@@ -1438,6 +1445,250 @@ input[type=file] {
     transition-timing-function: linear;
   }
 }
-/* Media Query 300p */
+/* Media Query 320p */
+@media screen and (max-width: 320px) {
+  .body {
+    grid-template-areas: "header header header" "main main main" "main main main" "main main main" "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto repeat(3, 1fr) auto;
+    background-image: url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"), radial-gradient(circle, rgba(26, 9, 13, 0.7) 0%, rgb(138, 43, 226) 100%);
+    background-size: cover;
+  }
+  .body__header {
+    grid-area: header;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .nav__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+  }
+  .nav__li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  .nav__a--next_page:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__main {
+    grid-area: main;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+  .main__section-title {
+    flex-flow: column wrap;
+  }
+  .main__section-title .article-title__h1 {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-title .article-title__h2 {
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__section-content {
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .main__article-content {
+    flex-grow: 1;
+  }
+  .main__article-content .article-content__p {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+    margin-top: 50px;
+    white-space: pre-line;
+  }
+  .main__article-content .article-content__a {
+    color: black;
+    transition-duration: 1s;
+  }
+  .main__article-content .article-content__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .main__article-content .article-content__a--button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .main__article-content #randomizer {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 0.9rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+  }
+  .main__article-content #randomizer:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .body__footer {
+    grid-area: footer;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .footer-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-container__p {
+    flex-basis: 50px;
+    font-size: 0.9rem;
+  }
+  .footer-container__p .footer-container__img {
+    height: 1.1rem;
+    object-fit: cover;
+  }
+  .footer-container__img--hidden {
+    visibility: hidden;
+  }
+  /************************* Corresponde a "Our Movies" *************************/
+  .article-content__ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+  }
+  .article-content__ul .article-content__li {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    margin: 2% 0;
+  }
+  /************************* Corresponde a "Add Movie" *************************/
+  .article-content__form {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .article-content__form .article-content__input--text-label, .article-content__form .article-content__input--number-label {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text, .article-content__form .article-content__input--text-area {
+    width: 80%;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--number {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--text-area::placeholder {
+    height: 80px;
+  }
+  .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
+    color: black;
+    background-color: rgb(239, 198, 155);
+    transition-duration: 1s;
+    border-color: rgb(108, 117, 107);
+    font-size: 0.9rem;
+    font-family: "Overpass", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 2;
+    cursor: none;
+    padding: 0px 5px;
+  }
+  .article-content__form .article-content__input--file-label:active, .article-content__form .article-content__submit:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+  .article-content__form .article-content__input--select-label { /*** Corresponde a "Contact Us" ****/
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .article-content__form .article-content__input--email {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  .article-content__form .article-content__input--select {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    width: 80%;
+  }
+  /************************* Corresponde a "About Me" *************************/
+  .main__article-content--about-me {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+  }
+  .main__article-content--about-me .article-content--about-me__p {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(212, 212, 212, 0.9);
+    color: #660F85;
+    font-family: "Overpass", sans-serif;
+    text-align: left;
+  }
+  .article-content--about-me__a:active {
+    color: rgb(239, 198, 155);
+    background-color: rgba(26, 9, 13, 0.6);
+    box-shadow: 2px 2px rgb(108, 117, 107);
+    transition-timing-function: linear;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

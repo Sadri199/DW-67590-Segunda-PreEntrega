@@ -690,7 +690,178 @@
         }
 }
 
-/* Media Query 300p */
+/* Media Query 320p */
+
+@media screen and (max-width: 320px) {
+    .body{
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+        "main main main"
+        "main main main"
+        "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto repeat(3, 1fr) auto;
+        background-image:  url("https://images.unsplash.com/photo-1737445919414-f0e8d699e081?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+        radial-gradient(circle,rgba(26, 9, 13, 0.7) 0%,rgba(138, 43, 226, 1) 100%);
+        background-size: cover; 
+    }
+    .body__header{
+        grid-area: header;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .nav__ul{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+    }
+    .nav__li{
+        margin: 5px 0;
+        font-size: variables.$font-size-320-normal;
+    }
+    .nav__a--next_page:active{
+        @include mixins.main-active;
+    }
+    .body__main{
+        grid-area: main;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 5;
+    }
+    .main__section-title{
+    flex-flow: column wrap;
+    .article-title__h1{
+        @include mixins.main-sm (variables.$font-size-320-h1);
+        }
+    .article-title__h2{
+        @include mixins.main-sm (variables.$font-size-320-h2);
+        }
+    }
+    .main__section-content{
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .main__article-content{
+        flex-grow: 1;
+        .article-content__p{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            text-align: left;
+            margin-top: 50px;
+            white-space: pre-line;
+        }
+        .article-content__a{
+            @include mixins.main-a;
+        }
+        .article-content__a:active{
+            @include mixins.main-active;
+        }
+        .article-content__a--button{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            text-decoration: none;
+        }
+        #randomizer{
+            @include mixins.main-button-sm (variables.$font-size-320-normal);
+            &:active{
+                @include mixins.main-active;
+            }
+        }
+    }
+    .body__footer{
+        grid-area: footer;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .footer-container{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .footer-container__p{
+        flex-basis: 50px;
+        font-size: variables.$font-size-320-normal;
+        .footer-container__img{
+            height: variables.$logo-height-320;
+            object-fit: cover;
+        }
+    }
+    .footer-container__img--hidden{
+            visibility: hidden;
+        }
+
+/************************* Corresponde a "Our Movies" *************************/
+
+    .article-content__ul{ 
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        align-items: center;
+        .article-content__li{
+        @include mixins.main-sm (variables.$font-size-320-normal);
+            margin: 2% 0;
+        }
+    }
+    
+
+/************************* Corresponde a "Add Movie" *************************/
+
+    .article-content__form{
+        display: flex;
+        flex-flow: column wrap;
+        .article-content__input--text-label, .article-content__input--number-label{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--text, .article-content__input--text-area{
+            width: 80%;
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--number{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+        }
+        .article-content__input--text-area::placeholder{
+            height: 80px;
+        }
+        .article-content__input--file-label, .article-content__submit{
+            @include mixins.main-button-sm (variables.$font-size-320-normal);
+            padding: 0px 5px;
+            }
+        .article-content__input--file-label:active, .article-content__submit:active{
+            @include mixins.main-active;
+            }
+        .article-content__input--select-label{ /*** Corresponde a "Contact Us" ****/
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            }
+        .article-content__input--email{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            width: 80%;
+            }
+        .article-content__input--select{
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            width: 80%;
+            }
+        }
+    
+/************************* Corresponde a "About Me" *************************/
+
+    .main__article-content--about-me{
+        @include mixins.main-sm (variables.$font-size-320-normal);
+        .article-content--about-me__p{  
+            @include mixins.main-sm (variables.$font-size-320-normal);
+            text-align: left;
+        }
+    }
+    .article-content--about-me__a:active{
+        @include mixins.main-active;
+        }
+}
+
 
 
 
