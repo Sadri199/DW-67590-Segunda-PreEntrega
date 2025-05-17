@@ -78,6 +78,60 @@ Rem cheatsheet */
   transition-timing-function: linear;
 }
 
+#mobile-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-icon__div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .header__nav--mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.9);
+  list-style-type: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.header__nav--mobile {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.header__nav--mobile li {
+  margin-bottom: 10px;
+}
+
+.header__nav--mobile li a {
+  color: aquamarine;
+}
+
 /* These mixins are adaptations of _extend, because media queries don't like extends */
 /* Mixins for 600p and 300p */
 .main-button, .main__section-content #randomizer, .article-content__form .article-content__input--file-label, .article-content__form .article-content__submit {
@@ -1220,19 +1274,10 @@ input[type=file] {
     grid-row-end: 2;
   }
   .nav__ul {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
+    display: none;
   }
-  .nav__li {
-    margin: 5px 0;
-    font-size: 1.1rem;
-  }
-  .nav__a--next_page:active {
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.6);
-    box-shadow: 2px 2px rgb(108, 117, 107);
-    transition-timing-function: linear;
+  #mobile-icon {
+    display: block;
   }
   .body__main {
     grid-area: main;
@@ -1467,19 +1512,10 @@ input[type=file] {
     grid-row-end: 2;
   }
   .nav__ul {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
+    display: none;
   }
-  .nav__li {
-    margin: 5px 0;
-    font-size: 0.9rem;
-  }
-  .nav__a--next_page:active {
-    color: rgb(239, 198, 155);
-    background-color: rgba(26, 9, 13, 0.6);
-    box-shadow: 2px 2px rgb(108, 117, 107);
-    transition-timing-function: linear;
+  #mobile-icon {
+    display: block;
   }
   .body__main {
     grid-area: main;

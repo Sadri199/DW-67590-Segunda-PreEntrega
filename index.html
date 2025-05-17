@@ -21,6 +21,18 @@
                 <li class="nav__li"><a href="./pages/about_me.html" class="nav__a--next_page">About Me</a></li>
                 <li class="nav__li"><a href="./pages/contact_us.html" class="nav__a--next_page">Contact Us</a></li>
             </ul>
+            <div id="mobile-icon" onclick="toggleMenu(this)"> 
+                <div class="mobile-icon__div bar1"></div>
+                <div class="mobile-icon__div bar2"></div>
+                <div class="mobile-icon__div bar3"></div>
+                <ul class="header__nav--mobile">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./pages/our_movies.html">Our Movies</a></li>
+                    <li><a href="./pages/add_movie.html">Add Movies</a></li>
+                    <li><a href="./pages/about_me.html">About Me</a></li>
+                    <li><a href="./pages/contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main class="body__main">
@@ -53,5 +65,10 @@
             <a class="footer-container__a" href="https://github.com/Sadri199"><img src="./img/github.png" alt="Link to Github" class="footer-container__img"><span class="footer-container__img--hidden">My Github!</span></a>
         </div>
     </footer>
+    <script>
+        function toggleMenu(menu){
+            menu.classList.toggle("open");
+        }
+    </script>
 </body>
 </html>
