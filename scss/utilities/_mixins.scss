@@ -109,3 +109,20 @@
     flex-grow: 2;
     cursor: none;
 }
+
+@mixin title-animation {
+    animation: title1 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@mixin keyframes{
+    @keyframes title1 {
+        0% {
+            filter: blur(12px);
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0px);
+            opacity: 1;
+        }
+    }
+}

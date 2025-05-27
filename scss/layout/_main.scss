@@ -20,6 +20,8 @@
     }
     .article-title__h1{
         @include mixins.main;
+        @include mixins.title-animation;
+        @include mixins.keyframes;
     }
     .article-title__h2{
         @include mixins.main;
@@ -52,7 +54,6 @@
             @extend .main-button_hover;
         }
     }
-    
 }
 
 /************************* Corresponde a "Our Movies" *************************/
