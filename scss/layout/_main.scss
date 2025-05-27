@@ -20,8 +20,10 @@
     }
     .article-title__h1{
         @include mixins.main;
-        @include mixins.title-animation;
-        @include mixins.keyframes;
+    }
+    .index__h1--animate{
+        @include mixins.animation-index-title;
+        @include mixins.keyframes-index-title;
     }
     .article-title__h2{
         @include mixins.main;
@@ -74,6 +76,10 @@
             @include mixins.main-a_hover;
         }
     }
+    .our_movies__a--animate{
+        @include mixins.animation-our_movies-list;
+        @include mixins.keyframes-our_movies-list;
+    }
 }
 
 /************************* Corresponde a "Add Movie" *************************/
@@ -115,6 +121,10 @@
             @extend .main-button_hover;
             }
     }
+    .add_movie__submit--animate{
+        @include mixins.animation-add_movie-submit;
+        @include mixins.keyframes-add_movie-submit;
+    }
 }
 
 /* Para sacarle las flechas esas horribles al input number */
@@ -137,14 +147,21 @@ input[type="file"]{
 
 /************************* Corresponde a "About Me" *************************/
 
+.about_me__h2--animate{
+            @include mixins.animation-about_me-h2;
+            @include mixins.keyframes-about_me-h2;
+}
+
 .main__article-content--about-me{
     @include mixins.main (1.4rem);
     white-space: pre-line;
     .article-content--about-me__p{
         text-align: left;
         .article-content--about-me__a{
-            @include mixins.main-a;
             font-style: italic;
+            @include mixins.main-a;
+            @include mixins.animation-about_me-a;
+            @include mixins.keyframes-about_me-a;
             &:hover{
                 @include mixins.main-a_hover
             }
@@ -192,4 +209,9 @@ input[type="file"]{
     .article-content__input--email::placeholder{
         @extend .main-placeholder;
     }
+}
+
+.contact_us__submit--animate{
+    @include mixins.animation-contact_us-submit;
+    @include mixins.keyframes-contact_us-submit;
 }
