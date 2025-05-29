@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*** Variables Body ***/
 /* Rem cheatsheet
 1rem = 16px
@@ -265,6 +264,18 @@ Rem cheatsheet */
   box-shadow: 2px 2px rgb(108, 117, 107);
   transition-timing-function: cubic-bezier(0.06, 0.38, 0.99, -0.01);
 }
+.main__section-content .article-content__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main__section-content .article-content__gallery .gallery__img {
+  padding: 5px;
+  margin: 5px;
+  height: 200px;
+  width: 150px;
+}
+
 /************************* Corresponde a "Our Movies" *************************/
 .article-content__ul {
   display: flex;
@@ -307,6 +318,11 @@ Rem cheatsheet */
     transform: scale(2.2);
     opacity: 0;
   }
+}
+
+.article-content__iframe {
+  display: flex;
+  justify-content: center;
 }
 
 /************************* Corresponde a "Add Movie" *************************/
@@ -1634,7 +1650,7 @@ input[type=file] {
   }
 }
 /* Media Query 600p */
-@media screen and (max-width: 600px) { /* Reacomodar todo, armar los mixins espcíficos */
+@media screen and (max-width: 600px) {
   .body {
     grid-template-areas: "header header header" "main main main" "main main main" "main main main" "footer footer footer";
     grid-template-columns: 1fr 1fr 1fr;
@@ -1733,6 +1749,9 @@ input[type=file] {
     background-color: rgba(26, 9, 13, 0.6);
     box-shadow: 2px 2px rgb(108, 117, 107);
     transition-timing-function: linear;
+  }
+  .main__article-content .article-content__gallery {
+    justify-content: center;
   }
   .body__footer {
     grid-area: footer;

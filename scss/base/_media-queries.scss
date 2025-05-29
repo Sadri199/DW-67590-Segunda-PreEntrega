@@ -692,7 +692,7 @@
 
 /* Media Query 600p */
 
-@media screen and (max-width: 600px){ /* Reacomodar todo, armar los mixins espcíficos */
+@media screen and (max-width: 600px){
     .body{
         grid-template-areas: 
         "header header header"
@@ -765,6 +765,9 @@
             &:active{
                 @include mixins.main-active;
             }
+        }
+        .article-content__gallery{
+        justify-content: center;
         }
     }
     .body__footer{

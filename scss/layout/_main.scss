@@ -56,7 +56,20 @@
             @extend .main-button_hover;
         }
     }
+    .article-content__gallery{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .gallery__img{
+            padding: 5px;
+            margin: 5px;
+            height: 200px;
+            width: 150px;
+        }
+    }
 }
+
+
 
 /************************* Corresponde a "Our Movies" *************************/
 
@@ -80,6 +93,11 @@
         @include mixins.animation-our_movies-list;
         @include mixins.keyframes-our_movies-list;
     }
+}
+
+.article-content__iframe{
+    display: flex;
+    justify-content: center;
 }
 
 /************************* Corresponde a "Add Movie" *************************/
